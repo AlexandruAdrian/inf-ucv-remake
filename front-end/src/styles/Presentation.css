@@ -16,3 +16,7 @@
   margin-top: 10px;
   align-self: flex-start
 }
+
+.presentation h4 {
+  font-size: 32px;
+}

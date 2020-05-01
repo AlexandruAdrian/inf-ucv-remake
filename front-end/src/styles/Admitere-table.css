@@ -1,0 +1,12 @@
+.admitere table, td  {
+  border: 2px solid #fff;
+}
+
+.admitere table {
+  border-collapse: collapse;
+  text-align: center;
+}
+
+.admitere table td {
+  padding: 10px 5px;
+}
