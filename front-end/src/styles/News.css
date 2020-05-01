@@ -1,0 +1,32 @@
+.news {
+  background: #fff;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  color: #222831;
+  width: 350px;
+}
+
+.news h4 {
+  font-size: 32px;
+}
+
+.news ul {
+  list-style-type: none;
+}
+
+.news ul li {
+  border-bottom: .5px solid #222831;
+  padding-bottom: 5px;
+  margin-top: 15px;
+  min-height: 60px;
+}
+
+.news ul li p {
+  margin-top: 5px;
+  font-size: 12px;
+  font-weight: bold;
+}

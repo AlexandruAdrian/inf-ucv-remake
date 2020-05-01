@@ -2,9 +2,9 @@ import React, {useState, useLayoutEffect, useRef} from 'react';
 import './styles/App.css';
 /* Components */
 import Nav from "./components/Nav";
-import Hero from "./components/Hero";
-import Promo from  "./components/Promo";
-import Presentation from "./components/Presentation";
+import Hero from "./components/Home/Hero";
+import Promo from  "./components/Home/Promo";
+import Presentation from "./components/Home/Presentation";
 
 function App() {
   const [headerHeight, setHeaderHeight] = useState(0);
@@ -17,7 +17,7 @@ function App() {
   return (
     <div>
       <header ref={targetRef}>
-        <Nav headerHeight={headerHeight}/>
+        <Nav headerHeight={headerHeight} />
         <Hero />
       </header>
       <main>

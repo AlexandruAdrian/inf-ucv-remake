@@ -9,7 +9,6 @@ const useScrollTracker = () => {
     const handleScroll = () => {
       const currentScrollPos = window.pageYOffset;
       const visible = prevScrollPos > currentScrollPos;
-
       setPrevScrollPos(currentScrollPos);
       setVisible(visible);
     }

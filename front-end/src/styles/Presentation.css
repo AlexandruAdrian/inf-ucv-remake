@@ -1,4 +1,18 @@
 .presentation {
-  height: 1000px;
-  background-color: #B5BECE;
+  background-color: #222831;
+  display: flex;
+  justify-content: space-around;
+  padding: 50px 10px;
+}
+
+.presentation a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #0D64CC;
+  font-weight: 500;
+}
+
+.presentation a:last-child {
+  margin-top: 10px;
+  align-self: flex-start
 }

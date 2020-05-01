@@ -10,8 +10,26 @@ header > section {
 header > section > h1 {
   margin-bottom: 5px;
   font-size: 32px;
+  animation-name: hero-fade;
+  animation-duration: 1.5s;
+  animation-delay: .2s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+header > section > h2 {
+  animation-name: hero-fade;
+  animation-duration: 1.5s;
+  animation-delay: .8s;
+  animation-fill-mode: forwards;
+  opacity: 0;
 }
 
 header > section > h2, header > section > h1 {
   font-weight: 300;
+}
+
+@keyframes hero-fade {
+  from {opacity: 0;}
+  to {opacity: 1;}
 }
