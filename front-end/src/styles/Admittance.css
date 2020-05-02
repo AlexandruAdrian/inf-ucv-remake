@@ -1,39 +1,39 @@
-.admitere {
+.admittance {
   color: #fff;
   display: flex;
   flex-direction: column;
   padding: 10px;
 }
 
-.admitere .licenta, .admitere .master {
+.admittance .licenta, .admittance .master {
   width: 100%;
   display: flex;
   flex-direction: column;
   opacity: 0;
 }
 
-.admitere h4 {
+.admittance h4 {
   align-self: center;
   margin-bottom: 15px;
 }
 
-.admitere p {
+.admittance p {
   margin-bottom: 10px;
 }
 
-.licenta p:nth-child(3), .admitere p:nth-child(7) {
+.licenta p:nth-child(3), .admittance p:nth-child(7) {
   margin-bottom: 20px;
 }
 
-.licenta p:last-child {
+.licenta p:nth-child(5) {
   align-self: center;
 }
 
-.admitere a {
+.admittance a {
   color: #fff;
   font-weight: bold;
 }
 
-.admitere a:hover {
+.admittance a:hover {
   text-decoration: underline;
 }

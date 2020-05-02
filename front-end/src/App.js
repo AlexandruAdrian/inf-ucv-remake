@@ -4,7 +4,7 @@ import './styles/App.css';
 import Nav from "./components/Nav";
 import Hero from "./components/Home/Hero";
 import Promo from  "./components/Home/Promo";
-import Presentation from "./components/Home/Presentation";
+import Offer from "./components/Home/Offer";
 
 function App() {
   const [headerHeight, setHeaderHeight] = useState(0);
@@ -22,7 +22,7 @@ function App() {
       </header>
       <main>
         <Promo />
-        <Presentation />
+        <Offer />
       </main>
     </div>
   );

@@ -1,7 +1,7 @@
 import React from 'react';
-import '../../styles/Admitere-table.css';
+import '../../styles/Admittance-table.css';
 
-const AdmitereTable = ({data}) => {
+const AdmittanceTable = ({data}) => {
   const {domeniulTitle, domeniulDesc, specializare, locBuget, locTaxa, dataInscrieri} = data;
   
   return (
@@ -31,4 +31,4 @@ const AdmitereTable = ({data}) => {
   );
 }
 
-export default AdmitereTable;
+export default AdmittanceTable;
