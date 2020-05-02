@@ -5,6 +5,7 @@ import Nav from "./components/Nav";
 import Hero from "./components/Home/Hero";
 import Promo from  "./components/Home/Promo";
 import Offer from "./components/Home/Offer";
+import Presentation from "./components/Home/Presentation";
 
 function App() {
   const [headerHeight, setHeaderHeight] = useState(0);
@@ -23,6 +24,7 @@ function App() {
       <main>
         <Promo />
         <Offer />
+        <Presentation />
       </main>
     </div>
   );

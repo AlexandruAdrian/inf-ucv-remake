@@ -1,0 +1,31 @@
+.presentation {
+  background-color: #fff;
+  color: #222831;
+  display: flex;
+  justify-content: space-between;
+  padding: 50px 100px;
+}
+
+.presentation h4 {
+  font-size: 32px;
+}
+
+.presentation h5 {
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+.presentation a {
+  color: #222831;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.presentation a:hover {
+  text-decoration: underline;
+}
+
+.presentation ul {
+  margin-left: 17px;
+  margin-bottom: 15px;
+}

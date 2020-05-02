@@ -1,8 +1,8 @@
 .offer {
   background-color: #222831;
   display: flex;
-  justify-content: space-around;
-  padding: 50px 10px;
+  justify-content: space-between;
+  padding: 50px 100px;
 }
 
 .offer a {
