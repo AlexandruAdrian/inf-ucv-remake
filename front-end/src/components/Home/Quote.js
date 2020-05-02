@@ -1,5 +1,5 @@
 import React from 'react';
-import "../../styles/Quote.css";
+import "../../styles/home/Quote.css";
 import "../../styles/animations.css";
 /* Custom Hooks */
 import useIntersect from "../../hooks/useIntersect";

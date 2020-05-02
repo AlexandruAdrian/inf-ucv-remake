@@ -21,12 +21,12 @@ const Nav = ({headerHeight}) => {
     return (
         <nav className={style}>
             <ul>
-                <li>Home</li>
-                <li>Admitere</li>
-                <li>Cadre Didactice</li>
-                <li>Programe Studiu</li>
-                <li>Anunturi</li>
-                <li>Contact</li>
+                <li><a href="/">Home</a></li>
+                <li><a href="/admitere">Admitere</a></li>
+                <li><a href="/cadre-didactice">Cadre Didactice</a></li>
+                <li><a href="/programe-studiu">Programe Studiu</a></li>
+                <li><a href="/anunturi">Anunturi</a></li>
+                <li><a href="/contact">Contact</a></li>
             </ul>
         </nav>
     );

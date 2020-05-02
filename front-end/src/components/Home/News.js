@@ -1,5 +1,5 @@
 import React from 'react';
-import "../../styles/News.css";
+import "../../styles/home/News.css";
 import "../../styles/animations.css";
 /* Components */
 import NewsItem from "./News-Item";

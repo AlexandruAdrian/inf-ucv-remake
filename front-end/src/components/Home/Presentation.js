@@ -1,5 +1,5 @@
 import React from 'react';
-import "../../styles/Presentation.css";
+import "../../styles/home/Presentation.css";
 import "../../styles/animations.css";
 /* Components */
 import Domains from "./Domains";

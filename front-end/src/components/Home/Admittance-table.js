@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../styles/Admittance-table.css';
+import '../../styles/home/Admittance-table.css';
 
 const AdmittanceTable = ({data}) => {
   const {domeniulTitle, domeniulDesc, specializare, locBuget, locTaxa, dataInscrieri} = data;

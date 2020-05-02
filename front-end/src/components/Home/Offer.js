@@ -1,5 +1,5 @@
 import React from 'react';
-import "../../styles/Offer.css";
+import "../../styles/home/Offer.css";
 import News from "./News";
 import Admittance from "./Admittance"
 

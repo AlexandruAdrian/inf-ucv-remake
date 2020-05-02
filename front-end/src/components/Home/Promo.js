@@ -1,5 +1,5 @@
 import React from 'react';
-import "../../styles/Promo.css";
+import "../../styles/home/Promo.css";
 import "../../styles/animations.css"; 
 /* Custom Hooks */
 import useIntersect from "../../hooks/useIntersect";

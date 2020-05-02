@@ -1,5 +1,5 @@
 import React from 'react';
-import "../../styles/Admittance.css";
+import "../../styles/home/Admittance.css";
 import "../../styles/animations.css";
 /* Components */
 import AdmittanceTable from "./Admittance-table";

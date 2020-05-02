@@ -24,6 +24,11 @@ nav > ul > li:hover {
     cursor: pointer;
 }
 
+nav > ul > li > a {
+    color: #fff;
+    text-decoration: none;
+}
+
 .hide-nav {
     top: -50px;
 }
@@ -55,4 +60,8 @@ nav > ul > li:hover {
 
 .white-nav > ul > li:hover::after {
     width: 100%;
+}
+
+.white-nav > ul > li > a {
+    color: #222831;
 }
