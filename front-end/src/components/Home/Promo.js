@@ -1,5 +1,6 @@
 import React from 'react';
 import "../../styles/Promo.css";
+import "../../styles/animations.css"; 
 /* Custom Hooks */
 import useIntersect from "../../hooks/useIntersect";
 
@@ -9,7 +10,7 @@ const Promo = () => {
   let animation = '';
 
   if (entry.isIntersecting) {
-    animation = 'slide-up'
+    animation = 'slide-up';
     observer.unobserve(entry.target);
   }
     

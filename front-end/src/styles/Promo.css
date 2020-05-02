@@ -12,7 +12,6 @@
   align-items: center;
   justify-content: center;
   visibility: hidden;
-  margin-top: 100px;
 }
 
 .promo h3 {
@@ -22,22 +21,4 @@
 .promo h4 {
   margin-top: 10px;
   font-size: 20px;
-}
-
-.slide-up {
-  animation-name: slide-up;
-  animation-duration: 1.3s;
-  animation-fill-mode: forwards;
-}
-
-@keyframes slide-up {
-  from {
-    opacity: 0;
-    visibility: hidden;
-  }
-  to {
-    margin-top: 0;
-    opacity: 1;
-    visibility: visible;
-  }
 }

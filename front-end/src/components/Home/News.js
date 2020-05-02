@@ -1,8 +1,19 @@
 import React from 'react';
 import "../../styles/News.css";
+import "../../styles/animations.css";
+/* Components */
 import NewsItem from "./News-Item";
+/* Custom Hooks */
+import useIntersect from "../../hooks/useIntersect";
 
 const News = () => {
+  const [setNode, entry, observer] = useIntersect({threshold: 0.5});
+  let animation = '';
+  
+  if (entry.isIntersecting) {
+    animation = 'slide-in-from-left';
+    observer.unobserve(entry.target);
+  }
   /* Temporary until back-end is implemented */
   const newsItems = [{
     title: "Orarul pentru semestrul 1 al anului universitar 2019 - 2020",
@@ -22,7 +33,7 @@ const News = () => {
   }];
 
   return (
-    <aside className="news">
+    <aside className={`news ${animation}`} ref={setNode}>
       <h4>Utimele Noutati</h4>
       <ul>
         {newsItems.map((item,index) => <NewsItem key={index} item={item}/>)}

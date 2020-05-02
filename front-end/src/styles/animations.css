@@ -1,0 +1,39 @@
+.slide-up {
+  animation-name: slide-up;
+  animation-duration: 1.3s;
+  animation-fill-mode: forwards;
+}
+
+.slide-in-from-left {
+  animation-name: slide-in-from-left;
+  animation-duration: .8s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+}
+
+@keyframes slide-up {
+  from {
+    transform: translateY(100px);
+    opacity: 0;
+    visibility: hidden;
+  }
+  to {
+    transform: translateY(0px);
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+@keyframes slide-in-from-left {
+  from {
+    transform: translateX(-300px);
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  to {
+    transform: translateX(0px);
+    opacity: 1;
+    visibility: visible;
+  }
+}
