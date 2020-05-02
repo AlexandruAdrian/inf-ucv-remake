@@ -1,9 +1,7 @@
-import React, {useState, useLayoutEffect, useRef} from 'react';
+import React from 'react';
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import './styles/App.css';
 /* Components */
-import Nav from "./components/Nav";
-import Hero from "./components/Home/Hero";
 import Home from "./components/Home";
 import Admittance from "./components/Admitere";
 import Teachers from "./components/Cadre-Didactice";
@@ -14,20 +12,9 @@ import Contact from "./components/Contact";
 /* Creates an icons library to use throughout the application */
 
 function App() {
-  const [headerHeight, setHeaderHeight] = useState(0);
-  const targetRef = useRef(null);
-  
-  useLayoutEffect(() => {
-    setHeaderHeight(targetRef.current.offsetHeight);
-  }, []);
-  
+
   return (
     <Router>
-      <div>
-        <header ref={targetRef}>
-          <Nav headerHeight={headerHeight} />
-          <Hero />
-        </header>
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/admitere" component={Admittance} />
@@ -39,7 +26,6 @@ function App() {
         <footer>
           <p>Copyright &copy; 2020 All rights reserved</p>
         </footer>
-      </div>
     </Router>
   );
 }

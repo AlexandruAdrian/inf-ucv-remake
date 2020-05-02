@@ -17,7 +17,6 @@ const Nav = ({headerHeight}) => {
     else if (visible && !whiteBG) style = "show-nav";
     else style = "hide-nav";
 
-
     return (
         <nav className={style}>
             <ul>
