@@ -1,0 +1,20 @@
+.quote {
+  background-color: #222831;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  padding: 50px 100px;
+  font-size: 24px;
+}
+
+.quote > div {
+  display: flex;
+}
+
+.quote > div p {
+  margin: 0 10px;
+}
+
+.transform-quote {
+  transform: translateY(-25px);
+}

@@ -4,4 +4,15 @@ header {
     height: 720px;
     color: #fff;
 }
-  
+
+
+footer {
+    background-color: #222831;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    font-size: 12px;
+}
+
+

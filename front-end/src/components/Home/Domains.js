@@ -1,10 +1,9 @@
 import React from 'react';
-import "../../styles/Domains.css";
 
-const Domains = () => {
+const Domains = ({className: animation}) => {
 
   return (
-    <div className="domains">
+    <div className={`domains ${animation}`}>
       <h4>Domenii de Licenta si Specializari</h4>
       <h5>INFORMATICA</h5>
       <ul>

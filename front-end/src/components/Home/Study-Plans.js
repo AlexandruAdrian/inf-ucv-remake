@@ -1,9 +1,9 @@
 import React from 'react';
-import "../../styles/Study-Plans.css";
-const StudyPlans = () => {
+
+const StudyPlans = ({className: animation}) => {
 
   return (
-    <div className="study-plans">
+    <div className={`study-plans ${animation}`}>
       <h4>Planuri de invatamant</h4>
       <h5>Ciclul I - Licenta (3 ani)</h5>
       <p><em>Informatica:</em></p>
