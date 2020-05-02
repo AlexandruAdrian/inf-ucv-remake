@@ -5,6 +5,7 @@
 .admitere table {
   border-collapse: collapse;
   text-align: center;
+  margin-bottom: 10px;
 }
 
 .admitere table td {

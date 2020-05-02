@@ -4,12 +4,39 @@ import AdmitereTable from "./Admitere-table";
 
 const Admitere = () => {
 
+  const licentaData = {
+    domeniulTitle: 'Domeniul de Licenta',
+    locBuget: 10,
+    locTaxa: 21,
+    dataInscrieri: '9 - 16 septembrie 2019',
+    domeniulDesc: 'Informatica (3 ani)',
+    specializare: 'Informatica'
+  }
+
+  const masterData = {
+    domeniulTitle: 'Domeniul de Master',
+    locBuget: 10,
+    locTaxa: 28,
+    dataInscrieri: '13 - 18 septembrie 2019',
+    domeniulDesc: 'Informatica (2 ani)',
+    specializare: 'Metode si modele in inteligenta artificiala'
+  }
+
   return (
-    <section class="admitere">
-      <h4>Admitere 2019</h4>
-      <p>Departamentul de Informatica al Facultatii de Stiinte organizeaza concurs de admitere pentru urmatoarele programe de studii:</p>
-      <p><strong>Ciclul 1: Licenta (Facultate)</strong> - Locuri libere pentru sesiunea de admitere septembrie 2019: </p>
-      <AdmitereTable />
+    <section className="admitere">
+      <div className="licenta">
+        <h4>Admitere 2019</h4>
+        <p>Departamentul de Informatica al Facultatii de Stiinte organizeaza concurs de admitere pentru urmatoarele programe de studii:</p>
+        <p><strong>Ciclul 1: Licenta (Facultate)</strong> - Locuri libere pentru sesiunea de admitere septembrie 2019: </p>
+        <AdmitereTable data={licentaData} />
+        <p>Taxa de scolarizare este de 3000 RON/an, platibili in transe</p>
+      </div>
+      <div className="master">
+        <p>Pentru detalii suplimentare consultati sectiunea <a href="#">Admitere Licenta 2019</a></p>
+        <p><strong>Ciclul 2: Master</strong> - Locuri libere pentru sesiunea de admitere septembrie 2019:</p>
+        <AdmitereTable data={masterData}/>
+        <p>Pentru detalii suplimentare consultati sectiunea <a href="#">Admitere Master 2019</a></p>
+      </div>
     </section>
   );
 };

@@ -5,15 +5,34 @@
   padding: 10px;
 }
 
+.admitere .licenta, .admitere .master {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
 .admitere h4 {
   align-self: center;
   margin-bottom: 15px;
 }
 
 .admitere p {
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 
-.admitere p:nth-child(3) {
+.licenta p:nth-child(3), .admitere p:nth-child(7) {
   margin-bottom: 20px;
+}
+
+.licenta p:last-child {
+  align-self: center;
+}
+
+.admitere a {
+  color: #fff;
+  font-weight: bold;
+}
+
+.admitere a:hover {
+  text-decoration: underline;
 }
