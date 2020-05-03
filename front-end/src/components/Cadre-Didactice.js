@@ -1,8 +1,19 @@
 import React from 'react';
+/* Components */
+import Header from "./Header";
+import Cadre from "./Cadre-Didactice/Cadre";
 
 const Teachers = () => {
   return (
-    <h1>Teachers</h1>
+    <>
+      <Header
+        bg='cadre-didactice-bg'
+        hero
+        title="Cadre didactice"
+        subtitle=""
+      />
+      <Cadre />
+    </>
   )
 }
 
