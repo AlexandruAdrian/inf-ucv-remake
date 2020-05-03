@@ -1,0 +1,28 @@
+.calendar {
+  display: flex;
+  flex-direction: column;
+  color: #222831;
+  padding: 50px 100px;
+}
+
+.calendar h4 {
+  font-size: 24px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.calendar p {
+  margin-bottom: 20px;
+}
+
+.calendar ul {
+  padding-left: 50px;
+}
+
+.calendar ul li {
+  margin-bottom: 10px;
+}
+
+.calendar ul li a {
+  color: #222831;
+}

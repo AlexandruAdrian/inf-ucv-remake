@@ -1,6 +1,8 @@
 header {
     width: 100%;
     color: #fff;
+    display: flex;
+    flex-direction: column;
 }
 
 footer {
@@ -18,6 +20,6 @@ footer {
 }
 
 .admitere-bg {
-    background: url("../images/admitere-hero.jpg") no-repeat top center fixed;
-    height: 720px;
+    background: linear-gradient(to bottom left, rgba(34, 40, 49, 0.4), rgb(180, 180, 180, 0.4)), url("../images/admitere-hero.jpg") no-repeat top center fixed;
+    height: 550px;
 }

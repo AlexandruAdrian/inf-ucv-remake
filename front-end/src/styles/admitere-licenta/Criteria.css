@@ -1,0 +1,23 @@
+.criteria {
+  background: #222831;
+  color: #fff;
+  padding: 50px 100px;
+}
+
+.criteria span {
+  color: crimson;
+}
+
+.criteria h4 {
+  font-size: 24px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.criteria p {
+  margin-bottom: 10px;
+}
+
+.criteria ol {
+  padding-left: 70px;
+}

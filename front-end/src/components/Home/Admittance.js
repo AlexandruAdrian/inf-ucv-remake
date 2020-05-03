@@ -48,12 +48,12 @@ const Admittance = () => {
         <p><strong>Ciclul 1: Licenta (Facultate)</strong> - Locuri libere pentru sesiunea de admitere septembrie 2019: </p>
         <AdmittanceTable data={licentaData} />
         <p>Taxa de scolarizare este de 3000 RON/an, platibili in transe</p>
-        <p>Pentru detalii suplimentare consultati sectiunea <a href="#">Admitere Licenta 2019</a></p>
+        <p>Pentru detalii suplimentare consultati sectiunea <a href="/admitere/licenta">Admitere Licenta 2019</a></p>
       </div>
       <div className={`master ${masterAnimation}`} ref={setMaster}>
         <p><strong>Ciclul 2: Master</strong> - Locuri libere pentru sesiunea de admitere septembrie 2019:</p>
         <AdmittanceTable data={masterData}/>
-        <p>Pentru detalii suplimentare consultati sectiunea <a href="#">Admitere Master 2019</a></p>
+        <p>Pentru detalii suplimentare consultati sectiunea <a href="/admitere/master">Admitere Master 2019</a></p>
       </div>
     </section>
   );

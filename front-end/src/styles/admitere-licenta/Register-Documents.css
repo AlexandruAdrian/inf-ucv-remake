@@ -1,0 +1,48 @@
+.register-documents {
+  display: flex;
+  flex-direction: column;
+  background-color: #222831;
+  color: #fff;
+  padding: 50px 100px;
+}
+
+.register-documents h4 {
+  font-size: 24px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.register-documents p {
+  margin-bottom: 10px;
+}
+
+.register-documents ol,.register-documents ol li > ul {
+  padding-left: 50px;
+}
+
+.register-documents ol {
+  margin-bottom: 20px;
+}
+
+.register-documents ol > li {
+  margin-bottom: 10px;
+}
+
+.register-documents > a {
+  font-size: 26px;
+  margin-bottom: 20px;
+}
+
+.register-documents a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.register-documents a:hover {
+  text-decoration: underline;
+}
+
+
+.register-document p > a {
+  color: #fff;
+}

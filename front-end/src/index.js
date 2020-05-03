@@ -4,6 +4,8 @@ import './styles/index.css';
 import App from './App';
 import {library} from '@fortawesome/fontawesome-svg-core';
 import {faQuoteLeft, faQuoteRight} from '@fortawesome/free-solid-svg-icons';
+
+/* Creates an icons library to use throughout the application */
 library.add(faQuoteLeft, faQuoteRight);
 
 ReactDOM.render(

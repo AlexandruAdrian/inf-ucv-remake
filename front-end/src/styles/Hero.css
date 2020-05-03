@@ -1,10 +1,23 @@
-.hero {
+.main-hero {
   color: #fff;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 100%;
+}
+
+.secondary-hero {
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+  margin-left: 50px;
+  margin-top: 140px;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  
 }
 
 .increase-visibility {
@@ -19,34 +32,11 @@
   border-radius: 10px;
 }
 
-.hero > h1 {
+header > section h1 {
   margin-bottom: 5px;
   font-size: 32px;
 }
 
-.hero > h2, .hero > h1 {
+header > section h2, header section > h1 {
   font-weight: 300;
-}
-
-.transparent {
-  opacity: 0;
-}
-
-.animate-hero-h1 {
-  animation-name: hero-fade;
-  animation-duration: 1.5s;
-  animation-delay: .2s;
-  animation-fill-mode: forwards;
-}
-
-.animate-hero-h2 {
-  animation-name: hero-fade;
-  animation-duration: 1.5s;
-  animation-delay: .8s;
-  animation-fill-mode: forwards;
-}
-
-@keyframes hero-fade {
-  from {opacity: 0;}
-  to {opacity: 1;}
 }

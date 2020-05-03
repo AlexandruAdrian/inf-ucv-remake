@@ -9,19 +9,24 @@ nav {
 nav > ul {
     list-style-type: none;
     width: 100%;
+    padding: 10px 0;
     display: flex;
     justify-content: space-evenly;
-    padding: 10px 0px;
 }
 
 nav > ul > li {
-    padding: 5px 9px;
+    padding: 7px 12px;
     border-radius: 5px;
 }
 
 nav > ul > li:hover {
-    transition: .3s ease-in-out;
     cursor: pointer;
+}
+
+nav > ul > li:nth-child(2) {
+    position: relative;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
 }
 
 nav > ul > li > a {
@@ -38,7 +43,7 @@ nav > ul > li > a {
 }
 
 .show-nav > ul > li:hover {
-    background-color: rgba(255, 255, 255, .2);
+    background-color: rgba(255, 255, 255, .4);
 }
 
 .white-nav {
@@ -52,7 +57,7 @@ nav > ul > li > a {
     content: " ";
     display: block;
     margin: 0 auto;
-    height: 2px;
+    height: 1px;
     width: 0px;
     background: #222831;
     transition: width .3s ease-in-out;
@@ -64,4 +69,77 @@ nav > ul > li > a {
 
 .white-nav > ul > li > a {
     color: #222831;
+}
+
+nav > ul > li:nth-child(2):hover .dropdown {
+    transition: .2s ease-in-out;
+    visibility: visible;
+ } 
+
+.dropdown {
+    width: 190px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    position: absolute;
+    top: 33px;
+    left: -50px;
+    padding: 0;
+    list-style-type: none;
+    visibility: hidden;
+}
+
+.dropdown li {
+    padding: 10px 12px;
+    width: 100%;
+}
+
+.dropdown li:first-child {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.dropdown li:last-child {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.admitere-dropdown {
+    background-color: rgba(255, 255, 255, .4);
+}
+
+.admitere-dropdown li:hover {
+    background-color: rgba(255, 255, 255, .4);  
+}
+
+.admitere-dropdown li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.admitere-white-dropdown {
+    background: #fff;
+}
+
+.admitere-white-dropdown li a {
+    color: #222831;
+    text-decoration: none;
+}
+
+.admitere-white-dropdown > li::after {
+    content: " ";
+    display: block;
+    margin: 0 auto;
+    height: 1px;
+    width: 0px;
+    background: #222831;
+    transition: width .3s ease-in-out;
+}
+
+.admitere-white-dropdown > li:hover::after {
+    width: 100%;
+}
+
+.hide-dropdown {
+    display: none;
 }

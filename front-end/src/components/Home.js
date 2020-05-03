@@ -10,8 +10,7 @@ const Home = () => {
     <>
     <Header 
       bg='home-bg' 
-      hero 
-      animateHero
+      hero
       title="Departamentul de Informatica"
       subtitle="Facultatea de Stiinte"
     />
