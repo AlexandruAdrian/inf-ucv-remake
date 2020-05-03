@@ -9,6 +9,10 @@
   margin: 15px 0px;
 }
 
+.master-register ol li {
+  margin-bottom: 5px;
+}
+
 .master-register p:nth-child(4) {
   color: crimson;
   margin-bottom: 15px;

@@ -24,6 +24,11 @@ const RegisterDocuments = () => {
         </li>
 
         <li>
+          <strong>certificatul de nastere</strong>, in <strong>copie legalizata</strong> (legalizarea se poate efectua si de catre comisia
+          de admitere a  facultatii pe baza actului original);
+        </li>
+
+        <li>
           <strong>certificatul de casatorie</strong> in copie legalizata. Candidatii care solicita si completarea numelui de dupa casatorie,
           vor depune o  cerere pentru completarea numelui, insotita de o declaratie autentificata la notariat, in care precizeaza ca nu vor
           solicita modificarea actelor de studii in cazul modificarii ulterioare a numelui;
