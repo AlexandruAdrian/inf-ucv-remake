@@ -7,31 +7,6 @@
   height: 100%;
 }
 
-.secondary-hero {
-  color: #fff;
-  display: flex;
-  flex-direction: column;
-  align-self: flex-start;
-  margin-left: 50px;
-  margin-top: 140px;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  
-}
-
-.increase-visibility {
-  background-color: rgba(34, 40, 49, 0.7);
-  width: 400px;
-  height: auto;
-  padding: 50px 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  border-radius: 10px;
-}
-
 header > section h1 {
   margin-bottom: 5px;
   font-size: 32px;

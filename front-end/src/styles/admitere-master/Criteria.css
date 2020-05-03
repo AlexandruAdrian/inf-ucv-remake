@@ -1,0 +1,18 @@
+.master-criteria h4 {
+  font-size: 24px;
+  align-self: center;
+  margin-bottom: 20px;
+}
+
+.master-criteria > div {
+  align-self: center;
+  margin-bottom: 20px;
+}
+
+.master-criteria > div p {
+  margin-bottom: 5px;
+}
+
+.master-criteria p:last-child {
+  align-self: center;
+}

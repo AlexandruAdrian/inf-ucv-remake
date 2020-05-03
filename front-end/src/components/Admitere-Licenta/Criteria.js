@@ -3,7 +3,7 @@ import "../../styles/admitere-licenta/Criteria.css";
 
 const Criteria = () => {
   return (
-    <section className="criteria">
+    <section className="container dark-bg-container criteria">
       <h4>Criterii de selectie</h4>
       <p>
         Pot candida la admiterea in invatamantul superior, in ciclul de studii universitare de licenta,

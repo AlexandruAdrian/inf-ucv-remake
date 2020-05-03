@@ -7,3 +7,18 @@
 body {
     font-family: 'Lato', sans-serif;
 }
+
+.container {
+    display: flex;
+    flex-direction: column;
+    padding: 50px 100px;
+}
+
+.white-bg-container {
+    color: #222831;
+}
+
+.dark-bg-container {
+    color: #fff;
+    background-color: #222831;
+}

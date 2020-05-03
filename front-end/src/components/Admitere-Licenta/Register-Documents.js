@@ -4,7 +4,7 @@ import "../../styles/admitere-licenta/Register-Documents.css";
 const RegisterDocuments = () => {
 
   return (
-    <section class="register-documents">
+    <section class="container dark-bg-container register-documents">
       <h4>Acte necesare la inscriere</h4>
       <p>Pentru inscrierea la concursul de admitere, candidatii vor depune un dosar mapa care cuprinde urmatoarele documente:</p>
       <ol>

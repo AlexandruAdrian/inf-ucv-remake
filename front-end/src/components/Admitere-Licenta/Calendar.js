@@ -4,7 +4,7 @@ import "../../styles/admitere-licenta/Calendar.css";
 const Calendar = () => {
 
   return (
-    <section className="calendar">
+    <section className="container white-bg-container calendar">
       <h4>Calendar</h4>
       <p><strong>Sesiunea septembrie 2019</strong></p>
       <ul>

@@ -5,7 +5,7 @@ import OfferTable from "./Offer-table";
 
 const Offer = () => {
   return (
-    <section className="admitere-offer">
+    <section className="container white-bg-container admitere-offer">
       <h4>Cifra de scolarizare</h4>
       <p>Cifra de scolarizare pentru anul academic 2019 - 2020 pentru domeniul de licenta <em>Informatica</em> este urmatoarea:</p>
       <OfferTable buget="135" taxa="40" />

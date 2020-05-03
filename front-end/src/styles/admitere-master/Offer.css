@@ -1,0 +1,17 @@
+.master-offer {
+  align-items: center;
+}
+
+.master-offer h4 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.master-offer p {
+  margin-bottom: 10px;
+}
+
+.master-offer p:nth-child(3),
+.master-offer p:nth-child(7){
+  margin-bottom: 30px;
+}

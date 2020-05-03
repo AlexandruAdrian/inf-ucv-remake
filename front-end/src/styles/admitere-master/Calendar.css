@@ -1,0 +1,9 @@
+.master-calendar h4 {
+  align-self: center;
+  font-size: 24px;
+  margin-bottom: 30px;
+}
+
+.master-calendar div {
+  margin: 15px 0px;
+}
