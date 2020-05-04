@@ -15,16 +15,21 @@ footer {
 }
 
 .home-bg {
-    background: url("../images/home-hero.jpg") no-repeat top center fixed;
+    background: url("/images/home-hero.jpg") no-repeat top center fixed;
     height: 720px;
 }
 
 .admitere-bg {
-    background: linear-gradient(to bottom left, rgba(34, 40, 49, 0.4), rgb(180, 180, 180, 0.4)), url("../images/admitere-hero.jpg") no-repeat top center fixed;
+    background: linear-gradient(to bottom left, rgba(34, 40, 49, 0.4), rgb(180, 180, 180, 0.4)), url("/images/admitere-hero.jpg") no-repeat top center fixed;
     height: 550px;
 }
 
 .cadre-didactice-bg {
-    background: url("../images/cadre-didactice-hero.jpg") no-repeat top center fixed;
+    background: url("/images/cadre-didactice-hero.jpg") no-repeat top center fixed;
+    height: 550px;
+}
+
+.programe-de-studii-bg {
+    background: linear-gradient(to bottom left, rgba(34, 40, 49, 0.3), rgb(180, 180, 180, 0.2)), url("/images/programe-studiu-hero.jpg") no-repeat top center fixed;
     height: 550px;
 }

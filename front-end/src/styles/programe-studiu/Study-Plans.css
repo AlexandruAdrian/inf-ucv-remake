@@ -1,0 +1,21 @@
+.study-plans > div:nth-child(2) {
+  margin-bottom: 25px;
+}
+
+.study-plans ul {
+  margin-left: 30px;
+}
+
+.study-plans > div:nth-child(3) ul {
+  margin-bottom: 10px;
+}
+
+.study-plans a {
+  color: #222831;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.study-plans ul a:hover {
+  text-decoration: underline;
+}

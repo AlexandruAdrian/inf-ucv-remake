@@ -1,0 +1,14 @@
+.study-programs {
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.study-programs h4 {
+  font-size: 24px;
+  margin-bottom: 25px;
+}
+
+.study-programs h5 {
+  font-size: 16px;
+  margin-bottom: 15px;
+}

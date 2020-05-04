@@ -1,0 +1,12 @@
+.programs > div:first-child {
+  margin-bottom: 30px;
+}
+
+.programs ol > li{
+  margin-bottom: 15px;
+}
+
+.programs ul {
+  list-style-type: disc;
+  margin-left: 15px;
+}
