@@ -7,8 +7,8 @@ import AdmittanceTable from "./Admittance-table";
 import useIntersect from '../../hooks/useIntersect';
 
 const Admittance = () => {
-  const [setAdmittance, admittanceEntry, admittanceObserver] = useIntersect({threshold: 0.6});
-  const [setMaster, masterEntry, masterObserver] = useIntersect({threshold: 0.7});
+  const [setAdmittance, admittanceEntry, admittanceObserver] = useIntersect({ threshold: 0.4 });
+  const [setMaster, masterEntry, masterObserver] = useIntersect({ threshold: 0.7 });
   let admittanceAnimation = '';
   let masterAnimation = '';
 
@@ -52,7 +52,7 @@ const Admittance = () => {
       </div>
       <div className={`master ${masterAnimation}`} ref={setMaster}>
         <p><strong>Ciclul 2: Master</strong> - Locuri libere pentru sesiunea de admitere septembrie 2019:</p>
-        <AdmittanceTable data={masterData}/>
+        <AdmittanceTable data={masterData} />
         <p>Pentru detalii suplimentare consultati sectiunea <a href="/admitere/master">Admitere Master 2019</a></p>
       </div>
     </section>

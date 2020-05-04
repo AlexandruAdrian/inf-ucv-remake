@@ -33,3 +33,8 @@ footer {
     background: linear-gradient(to bottom left, rgba(34, 40, 49, 0.3), rgb(180, 180, 180, 0.2)), url("/images/programe-studiu-hero.jpg") no-repeat top center fixed;
     height: 550px;
 }
+
+.anunturi-bg {
+    background: linear-gradient(to bottom left, rgba(34, 40, 49, 0.3), rgb(180, 180, 180, 0.2)), url("/images/anunturi-hero.jpg") no-repeat top center fixed;
+    height: 550px;
+}

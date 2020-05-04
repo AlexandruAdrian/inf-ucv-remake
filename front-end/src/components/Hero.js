@@ -5,7 +5,7 @@ const Hero = ({ title = "", subtitle = "" }) => {
     return (
         <section className="hero">
             <h1>{title}</h1>
-            <h2>{subtitle}</h2>
+            {subtitle.length > 0 && <h2>{subtitle}</h2>}
         </section>
     );
 }

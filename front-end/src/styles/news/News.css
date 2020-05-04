@@ -1,0 +1,14 @@
+.news-item {
+  background: #fff;
+  color: #222831;
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.news-item h4 {
+  font-size: 20px;
+  align-self: center;
+  margin-bottom: 15px;
+}

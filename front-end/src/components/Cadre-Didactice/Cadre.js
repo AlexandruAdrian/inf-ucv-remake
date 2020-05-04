@@ -1,12 +1,11 @@
 import React from 'react';
-import "../../styles/cadre-didactice/Cadre.css";
 
-import cadreDidactice from "../../profesori";
+import cadreDidactice from "../../profesori.json";
 import Cadru from "./Cadru";
 
 const Cadre = () => {
   return (
-    <section className="teachers-container dark-bg-container">
+    <section className="secondary-container dark-bg-container">
       {cadreDidactice.map(cadru => {
         return (
           <Cadru
