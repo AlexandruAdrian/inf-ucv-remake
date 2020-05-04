@@ -1,21 +1,24 @@
 import React from 'react';
+import "../../styles/cadre-didactice/Cadre.css";
+
 import cadreDidactice from "../../profesori";
 import Cadru from "./Cadru";
 
 const Cadre = () => {
   return (
-    <section className="container dark-bg-container">
+    <section className="teachers-container dark-bg-container">
       {cadreDidactice.map(cadru => {
         return (
           <Cadru
-            profile={cadru.profile}
-            name={cadru.nume}
-            grade={cadru.grad}
-            title={cadru.titlu}
-            webPage={cadru.webPage}
-            phone={cadru.phone}
-            fax={cadru.fax}
-            email={cadru.email}
+            key={cadru.Id}
+            profile={cadru.PathToPicture}
+            name={cadru.FullName}
+            grade={cadru.Grade}
+            title={cadru.Title}
+            webPage={cadru.WebPage}
+            phone={cadru.Phone}
+            fax={cadru.Fax}
+            email={cadru.Email}
           />
         )
       })}

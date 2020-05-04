@@ -1,0 +1,47 @@
+.teacher {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 500px;
+  min-height: 245px;
+  border-radius: 10px;
+  margin-right: 25px;
+  margin-bottom: 15px;
+  background-color: #fff;
+  color: #222831;
+  padding: 5px 10px;
+}
+
+.teacher figure {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 150px;
+  border: 1px solid #222831;
+  padding: 3px;
+  padding: 5px;
+}
+
+.teacher figure img {
+  width: 100%;
+  height: auto;
+}
+
+.teacher ul {
+  width: 300px;
+  list-style-type: none;
+  margin-left: 40px;
+}
+
+.teacher ul li {
+  margin-bottom: 5px;
+}
+
+.teacher ul li a {
+  text-decoration: none;
+  color: #222831;
+}
+
+.teacher ul li a:hover {
+  text-decoration: underline;
+}
