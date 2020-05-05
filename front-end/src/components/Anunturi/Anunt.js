@@ -1,11 +1,11 @@
 import React from 'react';
 
 const NewsItem = ({ title, description, tags, links }) => {
-  const findLinksInParagraph = (paragraph) => {
+  const findLinksInParagraph = (paragraph = "") => {
     const linkPositions = [];
     let startIndex = 0;
     let linkIndex;
-    tags.map((tag, tagIndex) => {
+    tags.forEach((tag, tagIndex) => {
       while ((linkIndex = paragraph.indexOf(tag, startIndex)) > -1) {
         linkPositions.push({ start: linkIndex, end: linkIndex + tag.length, link: links[tagIndex] });
         startIndex = linkIndex + tag.length;
@@ -15,14 +15,14 @@ const NewsItem = ({ title, description, tags, links }) => {
     return linkPositions;
   }
 
-  const linkText = (paragraph, linkPositions) => {
+  const linkText = (paragraph = "", linkPositions = []) => {
     const parts = [];
     let currentIndex = 0;
     linkPositions.forEach(({ start, end, link }) => {
       if (currentIndex < start) {
         parts.push(paragraph.slice(currentIndex, start));
       }
-      parts.push(<a key={start} href={link} target="_blank">{paragraph.slice(start, end)}</a>);
+      parts.push(<a key={start} href={link} target="_blank" rel="noopener noreferrer">{paragraph.slice(start, end)}</a>);
       currentIndex = end;
     });
 
@@ -37,10 +37,14 @@ const NewsItem = ({ title, description, tags, links }) => {
     <article className="news-item">
       <h4>{title}</h4>
       {description.map((paragraph, index) => {
-        const linkPositions = findLinksInParagraph(paragraph);
-        const parts = linkText(paragraph, linkPositions);
+        if (paragraph === " ") {
+          return <br key={index} />
+        } else {
+          const linkPositions = findLinksInParagraph(paragraph);
+          const parts = linkText(paragraph, linkPositions);
 
-        return <p key={index}>{parts}</p>
+          return <p key={index}>{parts}</p>
+        }
       })}
     </article>
   );

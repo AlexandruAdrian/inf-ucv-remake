@@ -79,7 +79,8 @@ const RegisterDocuments = () => {
       <p>
         Pentru mai multe detalii puteti accesa <a
           href="https://www.ucv.ro/pdf/admitere/2019/Regulament_organiz_si_desf_concurs_de%20admitere_2019_2020.pdf"
-          target="_blank">
+          target="_blank"
+          rel="noopener noreferrer">
           Regulamentul de organizare si desfasurare a concursului de admitere al universitatii.
         </a>
       </p>

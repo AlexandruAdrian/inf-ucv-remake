@@ -4,7 +4,7 @@ import "../../styles/admitere-licenta/Register-Documents.css";
 const RegisterDocuments = () => {
 
   return (
-    <section class="container dark-bg-container register-documents">
+    <section className="container dark-bg-container register-documents">
       <h4>Acte necesare la inscriere</h4>
       <p>Pentru inscrierea la concursul de admitere, candidatii vor depune un dosar mapa care cuprinde urmatoarele documente:</p>
       <ol>
@@ -88,12 +88,13 @@ const RegisterDocuments = () => {
         orfani de ambii parinti, cei proveniti de la casele de copii sau din plasament familial.
       </p>
 
-      <a href="http://inf.ucv.ro/documents/pliant-admitere-2019-septembrie.pdf" target="_blank">Pliant Admitere</a>
+      <a href="http://inf.ucv.ro/documents/pliant-admitere-2019-septembrie.pdf" target="_blank" rel="noopener noreferrer">Pliant Admitere</a>
 
       <p>
         Pentru mai multe detalii puteti accesa <a
           href="https://www.ucv.ro/pdf/admitere/2019/Regulament_organiz_si_desf_concurs_de%20admitere_2019_2020.pdf"
-          target="_blank">
+          target="_blank"
+          rel="noopener noreferrer">
           Regulamentul de organizare si desfasurare a concursului de admitere al universitatii
         </a>.
       </p>

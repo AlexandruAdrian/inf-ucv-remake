@@ -2,14 +2,29 @@
   background: #fff;
   color: #222831;
   border-radius: 10px;
-  padding: 10px;
+  padding: 20px 15px;
   display: flex;
   flex-direction: column;
   margin-bottom: 20px;
+  
 }
 
 .news-item h4 {
   font-size: 20px;
   align-self: center;
   margin-bottom: 15px;
+}
+
+.news-item p {
+  line-height: 20px;
+}
+
+.news-item a {
+  color: #222831;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.news-item a:hover {
+  text-decoration: underline;
 }
