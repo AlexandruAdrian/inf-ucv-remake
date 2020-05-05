@@ -38,3 +38,8 @@ footer {
     background: linear-gradient(to bottom left, rgba(34, 40, 49, 0.3), rgb(180, 180, 180, 0.2)), url("/images/anunturi-hero.jpg") no-repeat top center fixed;
     height: 550px;
 }
+
+.contact-bg {
+    background: linear-gradient(to bottom left, rgba(34, 40, 49, 0.4), rgb(180, 180, 180, 0.1)), url("/images/contact-hero.jpg") no-repeat top center fixed;
+    height: 550px;
+}
