@@ -1,6 +1,19 @@
 [
   {
     "title": "Discipline Optionale - An Universitar 2014 - 2015",
-    "description": "In perioada 06-22 iunie 2014 studentii anului I si II Informatica, anul I Master Informatica, sunt rugati sa isi exprime optiunile pentru disciplinele optionale pentru anul universitar 2014-2015. Acestea se vor realiza online la adresa: http://inf.ucv.ro/optionale/. Inainte de exprimarea acestora sunteti rugati sa cititi Ghidul de utilizare. Studentii care nu isi vor exprima optiunea pana la termenul limita indicat vor fi repartizati din oficiu."
+    "description": [
+      "In perioada 06-22 iunie 2014 studentii anului I si II Informatica, anul I Master Informatica, sunt rugati sa isi exprime optiunile pentru disciplinele optionale pentru anul universitar 2014-2015. Acestea se vor realiza online la adresa:",
+      "http://inf.ucv.ro/optionale/",
+      "Inainte de exprimarea acestora sunteti rugati sa cititi Ghidul de utilizare",
+      "Studentii care nu isi vor exprima optiunea pana la termenul limita indicat vor fi repartizati din oficiu."
+    ],
+    "tags": [
+      "Ghidul de utilizare",
+      "http://inf.ucv.ro/optionale/"
+    ],
+    "links": [
+      "http://inf.ucv.ro/optionale/login.php?view=ghid",
+      "http://inf.ucv.ro/optionale/"
+    ]
   }
 ]

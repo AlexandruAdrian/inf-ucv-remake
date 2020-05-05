@@ -15,8 +15,8 @@ const News = () => {
         subtitle=""
       />
       <section className="secondary-container dark-bg-container">
-        {anunturi.map(({ title, description }) => {
-          return <NewsItem title={title} description={description} />
+        {anunturi.map(({ title, description, tags, links }, index) => {
+          return <NewsItem key={index} title={title} description={description} tags={tags} links={links} />
         })}
       </section>
     </>
