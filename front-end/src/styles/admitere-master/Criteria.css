@@ -16,3 +16,13 @@
 .master-criteria p:last-child {
   align-self: center;
 }
+
+@media only screen and (max-width: 600px) {
+  .master-criteria h4{
+    font-size: 20px;
+  }
+
+  .master-criteria p {
+    font-size: 14px;
+  }
+}

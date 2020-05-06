@@ -7,3 +7,13 @@
 .master-calendar div {
   margin: 15px 0px;
 }
+
+@media only screen and (max-width: 600px) {
+  .master-calendar h4 {
+    font-size: 20px;
+  }
+
+  .master-calendar p {
+    font-size: 14px;
+  }
+}

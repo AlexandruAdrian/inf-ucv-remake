@@ -1,17 +1,17 @@
 import React from 'react';
 
-const OfferTable = ({buget, taxa}) => {
+const OfferTable = ({ buget, taxa }) => {
   return (
-    <table>
+    <table className="offer-table">
       <thead>
         <tr>
-          <td rowSpan="2">Domeniul de Licenta</td>
-          <td rowSpan="2">Specializarea</td>
-          <td colSpan="2">Numarul de locuri</td>
+          <th rowSpan="2">Domeniul de Licenta</th>
+          <th rowSpan="2">Specializarea</th>
+          <th colSpan="2">Numarul de locuri</th>
         </tr>
         <tr>
-          <td>Buget</td>
-          <td>Taxa <span>*</span></td>
+          <th>Buget</th>
+          <th>Taxa <span>*</span></th>
         </tr>
       </thead>
       <tbody>

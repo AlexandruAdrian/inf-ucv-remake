@@ -30,6 +30,7 @@ const Contact = () => {
           frameborder="0"
           allowfullscreen=""
           aria-hidden="false"
+          title="university-of-craiova"
           tabindex="0">
         </iframe>
       </section>

@@ -6,6 +6,8 @@
   border-collapse: collapse;
   text-align: center;
   margin-bottom: 10px;
+  max-width: 750px;
+  align-self: center;
 }
 
 .desktop-table td, .desktop-table th {
@@ -37,7 +39,7 @@
   }
 
   .mobile-table td, .mobile-table th {
-    padding: 5px 3px;
+    padding: 5px 7px;
   }
 
   .mobile-table th {

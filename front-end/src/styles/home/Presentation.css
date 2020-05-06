@@ -41,6 +41,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 25px 10px;
   }
 
   .presentation .domains, .presentation .study-plans {
@@ -49,5 +50,19 @@
 
   .presentation .study-plans {
     margin-top: 20px;
+  }
+
+  .presentation h4 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 20px;
+  }
+
+  .presentation h5 {
+    font-size: 16px;
+  }
+
+  .presentation li {
+    font-size: 14px;
   }
 }

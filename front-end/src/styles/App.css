@@ -43,3 +43,34 @@ footer {
     background: linear-gradient(to bottom left, rgba(34, 40, 49, 0.4), rgb(180, 180, 180, 0.1)), url("/images/contact-hero.jpg") no-repeat top center fixed;
     height: 550px;
 }
+
+@media only screen and (max-width: 600px) {
+    .home-bg {
+        background: url("/images/home-mobile-hero.jpg") no-repeat top center fixed;
+        height: 550px;
+    }
+
+    .admitere-bg {
+        background: linear-gradient(to bottom left, rgba(34, 40, 49, 0.4), rgb(180, 180, 180, 0.4)), url("/images/admitere-mobile-hero.jpg") no-repeat top center fixed;    
+        height: 330px;
+    }
+
+    .anunturi-bg {
+        background: linear-gradient(to bottom left, rgba(34, 40, 49, 0.3), rgb(180, 180, 180, 0.2)), url("/images/anunturi-mobile-hero.jpg") no-repeat top center fixed;
+        height: 330px;
+    }
+
+    .cadre-didactice-bg {
+        background: url("/images/cadre-didactice-mobile-hero.jpg") no-repeat top center fixed;
+        height: 330px;
+    }
+
+    .programe-de-studii-bg {
+        background: linear-gradient(to bottom left, rgba(34, 40, 49, 0.3), rgb(180, 180, 180, 0.2)), url("/images/programe-studiu-mobile-hero.jpg") no-repeat top center fixed;
+        height: 330px;
+    }
+
+    .contact-bg {
+        height: 330px;
+    }
+}

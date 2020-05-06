@@ -5,7 +5,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const MobileNav = () => {
   const [visible, setVisible] = useState(false);
-  const [showDropdown, setDropdown] = useState(false);
 
   const handleMenu = () => {
     setVisible(visible => !visible);

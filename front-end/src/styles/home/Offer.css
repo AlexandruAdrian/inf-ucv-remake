@@ -1,3 +1,7 @@
+.offer {
+  align-items: center;
+}
+
 .offer a {
   text-decoration: none;
   font-weight: bold;
@@ -12,4 +16,18 @@
 
 .offer h4 {
   font-size: 32px;
+}
+
+@media only screen and (max-width: 600px) {
+  .offer h4 {
+    font-size: 22px;
+  }
+
+  .offer h5 {
+    font-size: 20px;
+  }
+
+  .offer p {
+    font-size: 14px;
+  }
 }

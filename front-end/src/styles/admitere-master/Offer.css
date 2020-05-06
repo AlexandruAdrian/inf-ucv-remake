@@ -15,3 +15,14 @@
 .master-offer p:nth-child(7){
   margin-bottom: 30px;
 }
+
+@media only screen and (max-width: 600px) {
+  .master-offer h4 {
+    text-align: center;
+    font-size: 20px;
+  }
+
+  .master-offer p {
+    font-size: 14px;
+  }
+}

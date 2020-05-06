@@ -44,3 +44,18 @@
 .teacher ul li a:hover {
   text-decoration: underline;
 }
+
+@media only screen and (max-width: 480px) {
+  .teacher {
+    width: 98%;
+    margin-right: 0px;
+    flex-direction: column;
+  }
+
+  .teacher ul {
+    width: 100%;
+    margin-top: 10px;
+    margin-left: 0;
+    padding: 0 10px;
+  }
+}

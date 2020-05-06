@@ -35,7 +35,17 @@
   text-decoration: underline;
 }
 
+@media only screen and (max-width: 600px) {
+  .register-documents h4 {
+    font-size: 20px;
+  }
 
-.register-document p > a {
-  color: #fff;
+  .register-documents ol li {
+    font-size: 14px;
+  }
+
+  .register-documents ol,.register-documents ol li > ul {
+    padding-left: 30px;
+  }
+  
 }

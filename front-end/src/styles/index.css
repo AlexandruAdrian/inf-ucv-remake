@@ -11,12 +11,12 @@ body {
 .container {
     display: flex;
     flex-direction: column;
-    padding: 50px 100px;
+    padding: 50px 60px;
 }
 
 .secondary-container {
   display: flex;
-  padding: 50px 100px;
+  padding: 50px 60px;
   flex-wrap: wrap;
   justify-content: center;
 }
@@ -28,4 +28,10 @@ body {
 .dark-bg-container {
     color: #fff;
     background-color: #222831;
+}
+
+@media only screen and (max-width: 600px) {
+    .container, .secondary-container {
+        padding: 25px 10px;
+    }
 }

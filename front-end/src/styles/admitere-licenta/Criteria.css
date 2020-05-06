@@ -15,3 +15,18 @@
 .criteria ol {
   padding-left: 70px;
 }
+
+@media only screen and (max-width: 600px) {
+  .criteria h4 {
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+
+  .criteria p {
+    font-size: 14px;
+  }
+
+  .criteria ol {
+    padding-left: 30px;
+  }
+}

@@ -28,3 +28,13 @@
 .news-item a:hover {
   text-decoration: underline;
 }
+
+@media only screen and (max-width: 600px) {
+  .news-item h4 {
+    font-size: 20px;
+  }
+
+  .news-item p {
+    font-size: 14px;
+  }
+}
