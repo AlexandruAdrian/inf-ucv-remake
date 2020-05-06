@@ -1,17 +1,17 @@
 import React from 'react';
 import '../../styles/home/Admittance-table.css';
 
-const AdmittanceTable = ({data}) => {
-  const {domeniulTitle, domeniulDesc, specializare, locBuget, locTaxa, dataInscrieri} = data;
-  
+const AdmittanceTable = ({ data }) => {
+  const { domeniulTitle, domeniulDesc, specializare, locBuget, locTaxa, dataInscrieri } = data;
+
   return (
-    <table>
+    <table className="desktop-table">
       <thead>
         <tr>
-          <td rowSpan="2">{domeniulTitle}</td>
-          <td rowSpan="2">Specializarea</td>
-          <td colSpan="2">Numarul de locuri</td>
-          <td rowSpan="2">Inscrieri</td>
+          <th rowSpan="2">{domeniulTitle}</th>
+          <th rowSpan="2">Specializarea</th>
+          <th colSpan="2">Numarul de locuri</th>
+          <th rowSpan="2">Inscrieri</th>
         </tr>
         <tr>
           <td>Buget</td>

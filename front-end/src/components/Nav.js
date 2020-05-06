@@ -28,7 +28,7 @@ const Nav = ({ headerHeight }) => {
     }
 
     return (
-        <nav className={style}>
+        <nav className={`desktop-nav ${style}`}>
             <ul>
                 <li><a href="/">Home</a></li>
                 <li>
@@ -43,7 +43,6 @@ const Nav = ({ headerHeight }) => {
                 <li><a href="/anunturi">Anunturi</a></li>
                 <li><a href="/contact">Contact</a></li>
             </ul>
-
         </nav>
     );
 };

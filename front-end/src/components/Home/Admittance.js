@@ -3,6 +3,7 @@ import "../../styles/home/Admittance.css";
 import "../../styles/animations.css";
 /* Components */
 import AdmittanceTable from "./Admittance-table";
+import MobileTable from "./Admittance-table-mobile";
 /* Custom Hooks */
 import useIntersect from '../../hooks/useIntersect';
 
@@ -47,15 +48,17 @@ const Admittance = () => {
         <p>Departamentul de Informatica al Facultatii de Stiinte organizeaza concurs de admitere pentru urmatoarele programe de studii:</p>
         <p><strong>Ciclul 1: Licenta (Facultate)</strong> - Locuri libere pentru sesiunea de admitere septembrie 2019: </p>
         <AdmittanceTable data={licentaData} />
+        <MobileTable data={licentaData} />
         <p>Taxa de scolarizare este de 3000 RON/an, platibili in transe</p>
         <p>Pentru detalii suplimentare consultati sectiunea <a href="/admitere/licenta">Admitere Licenta 2019</a></p>
       </div>
       <div className={`master ${masterAnimation}`} ref={setMaster}>
         <p><strong>Ciclul 2: Master</strong> - Locuri libere pentru sesiunea de admitere septembrie 2019:</p>
         <AdmittanceTable data={masterData} />
+        <MobileTable data={masterData} />
         <p>Pentru detalii suplimentare consultati sectiunea <a href="/admitere/master">Admitere Master 2019</a></p>
       </div>
-    </section>
+    </section >
   );
 };
 

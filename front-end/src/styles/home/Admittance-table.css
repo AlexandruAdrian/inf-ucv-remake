@@ -1,13 +1,46 @@
-.admittance table, td  {
+.desktop-table, .desktop-table th, .desktop-table td  {
   border: 2px solid #fff;
 }
 
-.admittance table {
+.desktop-table {
   border-collapse: collapse;
   text-align: center;
   margin-bottom: 10px;
 }
 
-.admittance table td {
+.desktop-table td, .desktop-table th {
   padding: 10px 5px;
+}
+
+.desktop-table th {
+ font-weight: 500;
+}
+
+.mobile-table {
+  display: none;
+}
+
+@media only screen and (max-width: 820px) {
+  .desktop-table {
+    display: none;
+  }
+
+  .mobile-table, .mobile-table th, .mobile-table td  {
+    border: 2px solid #fff;
+  }
+  
+  .mobile-table {
+    display: table;
+    border-collapse: collapse;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  .mobile-table td, .mobile-table th {
+    padding: 5px 3px;
+  }
+
+  .mobile-table th {
+    font-weight: 500;
+   }
 }
