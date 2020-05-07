@@ -9,6 +9,7 @@ import Teachers from "./components/Cadre-Didactice";
 import StudyPrograms from "./components/Programe-Studiu";
 import News from "./components/Anunturi";
 import Contact from "./components/Contact";
+import NoMatch from "./components/NoMatch";
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
         <Route path="/programe-studiu" component={StudyPrograms} />
         <Route path="/anunturi" component={News} />
         <Route path="/contact" component={Contact} />
+        <Route component={NoMatch} />
       </Switch>
       <footer>
         <p>Copyright &copy; 2020 All rights reserved</p>

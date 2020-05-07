@@ -1,0 +1,50 @@
+.not-found {
+  padding: 0;
+  align-items: center;
+  justify-content: center;
+  height: calc(100% - 40px);
+}
+
+.not-found h1 {
+  font-size: 60px;
+}
+
+.not-found h2 {
+  font-size: 32px;
+  margin-bottom: 15px;
+}
+
+.not-found button {
+  width: 100px;
+  height: 35px;
+  background-color: #222831;
+  border: 0;
+  border-radius: 10px;
+  font-size: 18px;
+}
+
+.not-found button a {
+  color: #fff;
+  text-decoration: none;
+}
+
+
+@media only screen and (max-width: 600px) {
+  .not-found {
+    padding: 0 10px;
+    text-align: center;
+  }
+
+  .not-found h1 {
+    font-size: 40px;
+  }
+
+  .not-found h2 {
+    font-size: 18px;
+  }
+
+  .not-found button {
+    width: 80px;
+    font-size: 14px;
+  }
+}
