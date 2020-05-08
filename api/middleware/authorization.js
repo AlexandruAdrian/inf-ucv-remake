@@ -1,7 +1,7 @@
 require('dotenv').config();
 const jwt = require('jsonwebtoken');
 
-function isAuthorized(req, res) {
+function isAuthorized(req, res, next) {
   const authHeader =
     req.headers['authorization'] || req.headers['Authorization'];
   const jwtSecret = process.env.JWT_SECRET;
@@ -33,6 +33,8 @@ function isAuthorized(req, res) {
             user: decodedToken.user
           }
         });
+
+        next();
       }
     });
   } else {
