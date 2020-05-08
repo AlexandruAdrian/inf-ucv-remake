@@ -43,7 +43,7 @@ function teachersRoute() {
                 teacher
             })
         } catch (err) {
-            console.log(err);
+            console.log(`Failed to insert a new teacher record - ${err}`);
         }
     });
 
@@ -57,7 +57,7 @@ function teachersRoute() {
                 messasge: 'Successfully deleted teacher record'
             });
         } catch (err) {
-            console.log(err);
+            console.log(`Failed to delete teacher record - ${err}`);
         }
     });
 
@@ -84,7 +84,7 @@ function teachersRoute() {
                 message: 'Succesfully updated teacher record'
             })
         } catch (err) {
-            console.log(err);
+            console.log(`Failed to update teacher record - ${err}`);
         }
     });
 
