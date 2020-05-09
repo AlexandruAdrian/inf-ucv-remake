@@ -35,6 +35,10 @@ body {
     background-color: #222831;
 }
 
+.error-container {
+    height: 50px;
+  }
+
 @media only screen and (max-width: 600px) {
     .container, .secondary-container {
         padding: 25px 10px;
