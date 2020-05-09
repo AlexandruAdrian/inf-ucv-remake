@@ -25,14 +25,14 @@ function teachersRoute() {
             const teacher = new Teacher(req.body);
             const request = new mssql.Request();
             const query = `INSERT INTO Teachers VALUES (
-                '${teacher.fullName}',
-                '${teacher.grade}',
-                '${teacher.title}',
-                '${teacher.webPage}',
-                '${teacher.phone}',
-                '${teacher.fax}',
-                '${teacher.email}',
-                '${teacher.pathToPicture}'
+                '${teacher.getFullName()}',
+                '${teacher.getGrade()}',
+                '${teacher.getTitle()}',
+                '${teacher.getWebPage()}',
+                '${teacher.getPhone()}',
+                '${teacher.getFax()}',
+                '${teacher.getEmail()}',
+                '${teacher.getPathToPicture()}'
                 )`;
 
             await request.query(query);
@@ -68,14 +68,14 @@ function teachersRoute() {
             const query = `
                 UPDATE Teachers
                 SET 
-                    FullName = '${teacher.fullName}',
-                    Grade = '${teacher.grade}',
-                    Title = '${teacher.title}',
-                    WebPage = '${teacher.webPage}',
-                    Phone = '${teacher.phone}',
-                    Fax = '${teacher.fax}',
-                    Email = '${teacher.email}',
-                    PathToPicture = '${teacher.pathToPicture}'
+                    FullName = '${teacher.getFullName()}',
+                    Grade = '${teacher.getGrade()}',
+                    Title = '${teacher.getTitle()}',
+                    WebPage = '${teacher.getWebPage()}',
+                    Phone = '${teacher.getPhone()}',
+                    Fax = '${teacher.getFax()}',
+                    Email = '${teacher.getEmail()}',
+                    PathToPicture = '${teacher.getPathToPicture()}'
                 WHERE Id = ${req.params.id}
             `
             await request.query(query);

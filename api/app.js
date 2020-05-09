@@ -32,8 +32,11 @@ const dbConfig = {
             // Routes
             const teacherRoutes = require('./routes/teachers-route');
             const adminRoutes = require('./routes/admin-route');
+            const newsRoutes = require('./routes/news-route');
             app.use(teacherRoutes);
             app.use(adminRoutes);
+            app.use(newsRoutes);
+            // Start the app
             app.listen(port, () => console.log(`Listening on port ${port}`));
         }
     } catch (err) {
