@@ -13,7 +13,7 @@ function newsRoute() {
       const query = `SELECT * FROM News`;
       const result = await request.query(query);
 
-      res.json({
+      res.type('application/json').status(200).json({
         news: result.recordset
       })
     } catch (err) {
@@ -32,19 +32,19 @@ function newsRoute() {
       const request = new mssql.Request();
 
       if (categories.length === 0) {
-        return res.status(400).json({
+        return res.type('application/json').status(400).json({
           message: 'Campul categorii nu poate fi gol'
         })
       }
 
       if (data.title.trim().length === 0) {
-        return res.status(400).json({
+        return res.type('application/json').status(400).json({
           message: 'Campul titlu nu poate fi gol'
         })
       }
 
       if (data.content.trim().length === 0) {
-        return res.status(400).json({
+        return res.type('application/json').status(400).json({
           message: 'Campul continut nu poate fi gol'
         })
       }
@@ -63,7 +63,7 @@ function newsRoute() {
         query = `INSERT INTO Categories VALUES ('${news.getId()}', '${category}')`
         await request.query(query);
       }
-      res.status(200).json({
+      res.type('application/json').status(200).json({
         message: 'Anuntul a fost adaugat cu succes',
       });
     } catch (err) {
@@ -77,7 +77,7 @@ function newsRoute() {
       const query = `DELETE FROM News WHERE Id LIKE '${req.params.id}'`;
       await request.query(query);
 
-      res.json({
+      res.type('application/json').json({
         message: 'Anuntul a fost sters cu succes'
       })
     } catch (err) {
@@ -92,13 +92,13 @@ function newsRoute() {
       const data = news.getIdTitleContent();
 
       if (data.title.trim().length === 0) {
-        return res.status(400).json({
+        return res.type('application/json').status(400).json({
           message: 'Campul titlu nu poate fi gol'
         })
       }
 
       if (data.content.trim().length === 0) {
-        return res.status(400).json({
+        return res.type('application/json').status(400).json({
           message: 'Campul continut nu poate fi gol'
         })
       }
@@ -113,7 +113,7 @@ function newsRoute() {
 
       await request.query(query);
 
-      res.status(200).json({
+      res.type('application/json').status(200).json({
         message: 'Anuntul a fost actualizat cu succes'
       })
 

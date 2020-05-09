@@ -12,7 +12,7 @@ function teachersRoute() {
             const query = 'SELECT * FROM Teachers';
             const result = await request.query(query);
 
-            res.json({
+            res.type('application/json').json({
                 teachers: result.recordset
             })
         } catch (err) {
@@ -38,7 +38,7 @@ function teachersRoute() {
             await request.query(query);
 
 
-            res.status(200).json({
+            res.type('application/json').status(200).json({
                 message: 'Adaugarea inregistrarii profesorului a fost efectuata cu succes',
                 teacher
             })
@@ -53,7 +53,7 @@ function teachersRoute() {
             const query = `DELETE FROM Teachers WHERE Id = ${req.params.id}`
             await request.query(query);
 
-            res.status(200).json({
+            res.type('application/json').status(200).json({
                 messasge: 'Inregistrarea profesorului a fost stearsa cu succes'
             });
         } catch (err) {
@@ -80,7 +80,7 @@ function teachersRoute() {
             `
             await request.query(query);
 
-            res.status(200).json({
+            res.type('application/json').status(200).json({
                 message: 'Actualizarea a fost efectuata cu succes'
             })
         } catch (err) {

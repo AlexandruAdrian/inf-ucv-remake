@@ -11,7 +11,7 @@ function categoryRoutes() {
       const query = `SELECT * FROM Categories WHERE NewsId LIKE '${req.params.newsId}'`
       const result = await request.query(query);
 
-      res.status(200).json({
+      res.type('application/json').status(200).json({
         message: 'Successfully fetched categories',
         categories: result.recordset
       })
@@ -25,7 +25,7 @@ function categoryRoutes() {
       let category = req.body.category.trim().toLowerCase();
       category = category.replace(category.charAt(0), category.charAt(0).toUpperCase());
       if (category.length === 0) {
-        return res.status(400).json({
+        return res.type('application/json').status(400).json({
           message: 'Campul categorie nu poate fi gol'
         });
       }
@@ -39,26 +39,25 @@ function categoryRoutes() {
         const foundCategory = result.recordset.find(record => record.Category === category);
 
         if (foundCategory !== undefined) {
-          return res.status(409).json({
+          return res.type('application/json').status(409).json({
             message: 'Categoria se afla deja in lista'
           })
         } else {
           query = `INSERT INTO Categories VALUES ('${req.body.newsId}', '${category}')`;
           await request.query(query);
-          return res.json({
+          return res.type('application/json').json({
             message: 'Successfully added category'
           })
         }
 
       } else {
-        res.status(400).json({
+        res.type('application/json').status(400).json({
           message: 'Categorie invalida.'
         });
       }
 
     } catch (err) {
       console.log(`Failed to post category - ${err}`);
-      console.log(err);
     }
   });
 
@@ -70,7 +69,7 @@ function categoryRoutes() {
         WHERE NewsId LIKE '${req.params.newsId}' AND Id = ${req.params.categoryId}`;
       await request.query(query);
 
-      res.status(200).json({
+      res.type('application/json').status(200).json({
         message: 'Categorie stearsa cu succes'
       })
     } catch (err) {

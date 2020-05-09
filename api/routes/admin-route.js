@@ -14,7 +14,7 @@ function adminRoute() {
       const jwtSecret = process.env.JWT_SECRET;
       // Check if the uername is correct
       if (req.body.username !== username) {
-        return res.status(401).json({
+        return res.type('application/json').status(401).json({
           message: 'Username-ul sau parola sunt gresite'
         });
       }
@@ -22,7 +22,7 @@ function adminRoute() {
       // Check if passwords match
       let passwordMatch = bcrypt.compareSync(req.body.pass, pass);
       if (!passwordMatch) {
-        return res.status(401).json({
+        return res.type('application/json').status(401).json({
           message: 'Username-ul sau parola sunt gresite'
         })
       }
@@ -32,11 +32,11 @@ function adminRoute() {
         expiresIn: '28d'
       });
 
-      return res.status(200).json({
+      return res.type('application/json').status(200).json({
         accessToken: token
       })
     } catch (err) {
-      res.json({
+      res.type('application/json').json({
         message: `Something went wrong ${err}`
       })
     }

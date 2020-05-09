@@ -11,7 +11,7 @@ function tagRoutes() {
       const query = `SELECT * FROM Tags WHERE NewsId LIKE '${req.params.newsId}'`;
       const result = await request.query(query);
 
-      res.status(200).json({
+      res.type('application/json').status(200).json({
         message: 'Successfully fetched tags',
         tags: result.recordset
       })
@@ -26,13 +26,13 @@ function tagRoutes() {
       const tag = req.body.tag.trim();
       const link = req.body.link.trim();
       if ((tag.length > 0 && link.length < 1) || (tag.length < 1 && link.length > 0)) {
-        return res.status(400).json({
+        return res.type('application/json').status(400).json({
           message: 'Tag-ul si Link-ul sunt corelate, fiecarui tag trebuie sa ii corespunda un link.'
         })
       }
 
       if (link.indexOf('http://') === -1) {
-        return res.status(400).json({
+        return res.type('application/json').status(400).json({
           message: 'Link invalid! Asigurati-va ca link-ul incepe cu http://'
         });
       }
@@ -44,14 +44,14 @@ function tagRoutes() {
       const foundTag = tags.find(tagRecord => tagRecord.Tag === tag);
 
       if (foundTag !== undefined) {
-        return res.status(409).json({
+        return res.type('application/json').status(409).json({
           message: 'Tag-ul se afla deja in lista'
         })
       } else {
         query = `INSERT INTO Tags VALUES ('${req.body.newsId}', '${tag}', '${link}')`;
         await request.query(query);
 
-        return res.status(200).json({
+        return res.type('application/json').status(200).json({
           message: 'Tag adaugat cu succes'
         });
       }
@@ -70,7 +70,7 @@ function tagRoutes() {
       `
       await request.query(query);
 
-      res.status(200).json({
+      res.type('application/json').status(200).json({
         message: 'Tag sters cu succes'
       })
 
