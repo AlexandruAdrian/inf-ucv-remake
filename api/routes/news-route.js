@@ -12,25 +12,9 @@ function newsRoute() {
       const request = new mssql.Request();
       const query = `SELECT * FROM News`;
       const result = await request.query(query);
-      const newsArray = [];
-
-      for (const record of result.recordset) {
-        const news = new News(record);
-        const q = `
-          SELECT T.Tag, T.Link
-          FROM Tags T
-          WHERE T.NewsId = ${record.Id}
-        `
-        const res = await request.query(q);
-        for (const r of res.recordset) {
-          news.addTag(r.Tag);
-          news.addLink(r.Link);
-        }
-        newsArray.push(news);
-      }
 
       res.json({
-        news: newsArray
+        news: result.recordset
       })
     } catch (err) {
       console.log(`Failed to fetch news - ${err}`);
