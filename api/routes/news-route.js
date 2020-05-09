@@ -64,11 +64,7 @@ function newsRoute() {
         await request.query(query);
       }
       res.status(200).json({
-        message: 'Successfully added data',
-        data,
-        tags,
-        links,
-        categories
+        message: 'Anuntul a fost adaugat cu succes',
       });
     } catch (err) {
       console.log(`Failed to create news - ${err}`);
@@ -82,7 +78,7 @@ function newsRoute() {
       await request.query(query);
 
       res.json({
-        message: 'Successfully deleted news record'
+        message: 'Anuntul a fost sters cu succes'
       })
     } catch (err) {
       console.log(`Failed to delete news record - ${err}`)
@@ -118,7 +114,7 @@ function newsRoute() {
       await request.query(query);
 
       res.status(200).json({
-        message: 'Successfully updated news record'
+        message: 'Anuntul a fost actualizat cu succes'
       })
 
     } catch (err) {

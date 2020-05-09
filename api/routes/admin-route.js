@@ -15,7 +15,7 @@ function adminRoute() {
       // Check if the uername is correct
       if (req.body.username !== username) {
         return res.status(401).json({
-          message: 'Wrong username or password'
+          message: 'Username-ul sau parola sunt gresite'
         });
       }
 
@@ -23,7 +23,7 @@ function adminRoute() {
       let passwordMatch = bcrypt.compareSync(req.body.pass, pass);
       if (!passwordMatch) {
         return res.status(401).json({
-          message: 'Wrong username or password'
+          message: 'Username-ul sau parola sunt gresite'
         })
       }
 
