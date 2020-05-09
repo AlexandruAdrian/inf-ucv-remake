@@ -39,7 +39,7 @@ function teachersRoute() {
 
 
             res.status(200).json({
-                message: 'Successfully added teacher',
+                message: 'Adaugarea inregistrarii profesorului a fost efectuata cu succes',
                 teacher
             })
         } catch (err) {
@@ -54,7 +54,7 @@ function teachersRoute() {
             await request.query(query);
 
             res.status(200).json({
-                messasge: 'Successfully deleted teacher record'
+                messasge: 'Inregistrarea profesorului a fost stearsa cu succes'
             });
         } catch (err) {
             console.log(`Failed to delete teacher record - ${err}`);
@@ -81,7 +81,7 @@ function teachersRoute() {
             await request.query(query);
 
             res.status(200).json({
-                message: 'Succesfully updated teacher record'
+                message: 'Actualizarea a fost efectuata cu succes'
             })
         } catch (err) {
             console.log(`Failed to update teacher record - ${err}`);

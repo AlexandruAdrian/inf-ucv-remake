@@ -5,7 +5,7 @@ const isAuthorized = require('../middleware/authorization');
 function categoryRoutes() {
   const router = express.Router();
 
-  router.get("/news/:newsId/categories/", isAuthorized, async (req, res) => {
+  router.get("/news/:newsId/categories/", async (req, res) => {
     try {
       const request = new mssql.Request();
       const query = `SELECT * FROM Categories WHERE NewsId LIKE '${req.params.newsId}'`
@@ -40,7 +40,7 @@ function categoryRoutes() {
 
         if (foundCategory !== undefined) {
           return res.status(409).json({
-            message: 'Category already exists'
+            message: 'Categoria se afla deja in lista'
           })
         } else {
           query = `INSERT INTO Categories VALUES ('${req.body.newsId}', '${category}')`;
@@ -71,7 +71,7 @@ function categoryRoutes() {
       await request.query(query);
 
       res.status(200).json({
-        message: 'Successfully deleted category'
+        message: 'Categorie stearsa cu succes'
       })
     } catch (err) {
       console.log(`Failed to delete category - ${err}`);
