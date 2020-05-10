@@ -39,6 +39,57 @@ body {
     height: 50px;
   }
 
+.toolbar {
+    display: flex;
+    justify-content: space-around;
+    padding: 0 15px;
+    width: 100%;
+}
+
+.tool {
+    display: flex;
+    height: 20px;
+    width: 150px;
+}
+
+.card-toolbar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 5px;
+    margin-top: 5px;
+}
+
+.card-toolbar .tool {
+    justify-content: center;
+    height: auto;
+    border-radius: 10px;
+    padding: 5px;
+    margin-bottom: 10px;
+    color: #fff;
+    text-align: center;
+    width: 48%;
+}
+
+.card-toolbar .tool:first-child {
+    background-color: dodgerblue;
+}
+
+.card-toolbar .tool:last-child {
+    background-color: crimson;
+}
+
+.card-toolbar .tool:hover {
+    cursor: pointer;
+}
+
+.tool p { margin-left: 10px; }
+
+.tool:hover {
+    cursor: pointer;
+}
+
+
 @media only screen and (max-width: 600px) {
     .container, .secondary-container {
         padding: 25px 10px;

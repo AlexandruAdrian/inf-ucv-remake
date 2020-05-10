@@ -13,6 +13,8 @@ import ExtendedArticle from "./components/Anunturi/Anunt-Extented";
 import Contact from "./components/Contact";
 import NoMatch from "./components/NoMatch";
 import Admin from "./components/Admin";
+/* Contexts*/
+import { AdminContextProvider } from "./context/admin-context";
 
 function App() {
   axios.defaults.baseURL = "http://localhost:8000";
@@ -21,14 +23,16 @@ function App() {
     <Router>
       <Switch>
         <Route path="/" exact component={Home} />
-        <Route path="/user/login" component={Admin} />
         <Route path="/(admitere|admitere/licenta)" exact component={AdmittanceLicense} />
         <Route path="/admitere/master" component={AdmittanceMaster} />
-        <Route path="/cadre-didactice" component={Teachers} />
         <Route path="/programe-studiu" component={StudyPrograms} />
-        <Route path="/anunturi" exact component={News} />
         <Route path="/contact" component={Contact} />
-        <Route path="/anunturi/:newsId" component={ExtendedArticle} />
+        <AdminContextProvider>
+          <Route path="/user/login" component={Admin} />
+          <Route path="/cadre-didactice" component={Teachers} />
+          <Route path="/anunturi" exact component={News} />
+          <Route path="/anunturi/:newsId" component={ExtendedArticle} />
+        </AdminContextProvider>
         <Route component={NoMatch} />
       </Switch>
       <footer>

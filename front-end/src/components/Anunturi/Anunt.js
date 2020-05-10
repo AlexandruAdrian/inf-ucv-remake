@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+/* Components */
+import Tool from "../Admin/Tool";
 
-const NewsItem = ({ id = "", title = "", content = " ", extended = false }) => {
+const NewsItem = ({ id = "", title = "", content = " ", extended, isAdmin }) => {
   const [tags, setTags] = useState([]);
 
   useEffect(() => {
@@ -65,6 +67,12 @@ const NewsItem = ({ id = "", title = "", content = " ", extended = false }) => {
         <>
           <p>{content.slice(0, 180)}...</p>
           <a href={`/anunturi/${id}`} className="read-more">Citeste mai mult</a>
+          {isAdmin &&
+            <div className="card-toolbar">
+              <Tool icon='pen' text='Editeaza' />
+              <Tool icon='trash-alt' text='Sterge' />
+            </div>
+          }
         </>
       }
     </article>
