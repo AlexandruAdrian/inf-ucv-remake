@@ -9,6 +9,7 @@ import AdmittanceMaster from "./components/Admitere-Master";
 import Teachers from "./components/Cadre-Didactice";
 import StudyPrograms from "./components/Programe-Studiu";
 import News from "./components/Anunturi";
+import ExtendedArticle from "./components/Anunturi/Anunt-Extented";
 import Contact from "./components/Contact";
 import NoMatch from "./components/NoMatch";
 import Admin from "./components/Admin";
@@ -25,8 +26,9 @@ function App() {
         <Route path="/admitere/master" component={AdmittanceMaster} />
         <Route path="/cadre-didactice" component={Teachers} />
         <Route path="/programe-studiu" component={StudyPrograms} />
-        <Route path="/anunturi" component={News} />
+        <Route path="/anunturi" exact component={News} />
         <Route path="/contact" component={Contact} />
+        <Route path="/anunturi/:newsId" component={ExtendedArticle} />
         <Route component={NoMatch} />
       </Switch>
       <footer>

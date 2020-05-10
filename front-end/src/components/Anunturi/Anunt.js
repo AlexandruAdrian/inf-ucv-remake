@@ -1,21 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const NewsItem = ({ id, title, content }) => {
+const NewsItem = ({ id = "", title = "", content = " ", extended = false }) => {
   const [tags, setTags] = useState([]);
-  const [paragraphs] = useState(content.split("\n"));
 
-  const fetchTagsAndLinks = async () => {
-    try {
-      const response = await axios.get(`/news/${id}/tags`);
-      setTags(tags => [...response.data.tags, ...tags]);
-    } catch (err) {
-      console.log(err);
-    }
-  }
   useEffect(() => {
-    fetchTagsAndLinks();
-  }, []);
+    const fetchTagsAndLinks = async () => {
+      try {
+        const response = await axios.get(`/news/${id}/tags`);
+        setTags(tags => [...response.data.tags, ...tags]);
+      } catch (err) {
+        console.log(err);
+      }
+    }
+
+    if (extended) {
+      fetchTagsAndLinks();
+    }
+  }, [extended, id]);
 
   const findLinksInParagraph = (paragraph = "") => {
     const linkPositions = [];
@@ -50,14 +52,21 @@ const NewsItem = ({ id, title, content }) => {
   }
 
   return (
-    <article className="news-item">
+    <article className={extended ? 'extended-news-item container white-bg-container' : 'news-item'}>
       <h4>{title}</h4>
-      {paragraphs.map((paragraph, index) => {
-        const linkPositions = findLinksInParagraph(paragraph);
-        const parts = linkText(paragraph, linkPositions);
+      {extended ?
+        content.split("\n").map((paragraph, index) => {
+          const linkPositions = findLinksInParagraph(paragraph);
+          const parts = linkText(paragraph, linkPositions);
 
-        return <p key={index}>{parts}</p>
-      })}
+          return <p key={index}>{parts}</p>
+        })
+        :
+        <>
+          <p>{content.slice(0, 180)}...</p>
+          <a href={`/anunturi/${id}`} className="read-more">Citeste mai mult</a>
+        </>
+      }
     </article>
   );
 }
