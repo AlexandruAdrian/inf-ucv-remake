@@ -4,7 +4,7 @@ const isAuthorized = require('../middleware/authorization');
 
 function categoryRoutes() {
   const router = express.Router();
-
+  // Fetch categories for an article
   router.get("/news/:newsId/categories/", async (req, res) => {
     try {
       const request = new mssql.Request();
@@ -20,6 +20,22 @@ function categoryRoutes() {
     }
   });
 
+  // Fetches available categories
+  router.get("/categories", async (req, res) => {
+    try {
+      const request = new mssql.Request();
+      const query = 'SELECT DISTINCT C.Category FROM Categories C';
+      const result = await request.query(query);
+
+      res.status(200).json({
+        categories: result.recordset
+      });
+    } catch (err) {
+      console.log(`Failed to fetch categories - ${err}`);
+    }
+  });
+
+  // Adds a category to an article
   router.post("/news/categories/", isAuthorized, async (req, res) => {
     try {
       let category = req.body.category.trim().toLowerCase();
@@ -61,6 +77,7 @@ function categoryRoutes() {
     }
   });
 
+  // Deletes a catgory from an article
   router.delete("/news/:newsId/categories/:categoryId", isAuthorized, async (req, res) => {
     try {
       const request = new mssql.Request();

@@ -6,8 +6,8 @@ const News = require('../news');
 
 function newsRoute() {
   const router = express.Router();
-
-  router.get('/news', async (req, res) => {
+  // Fetches all news
+  router.get('/news/toate', async (req, res) => {
     try {
       const request = new mssql.Request();
       const query = `SELECT * FROM News`;
@@ -18,6 +18,42 @@ function newsRoute() {
       })
     } catch (err) {
       console.log(`Failed to fetch news - ${err}`);
+    }
+  });
+
+  // Fetches one article
+  router.get("/news/article/:newsId", async (req, res) => {
+    try {
+      const request = new mssql.Request();
+      const query = `SELECT * FROM News WHERE Id LIKE '${req.params.newsId}'`;
+      const result = await request.query(query);
+
+      res.status(200).json({
+        news: result.recordset
+      });
+    } catch (err) {
+      console.log(`Failed to fetch article ${req.params.newsId} - ${err}`);
+    }
+  });
+
+  // Fetches news from a specified category
+  router.get('/news/:category', async (req, res) => {
+    try {
+      let category = req.params.category;
+      category = category.replace(category.charAt(0), category.charAt(0).toUpperCase());
+      const request = new mssql.Request();
+      const query = `
+        SELECT N.*
+        FROM News N, Categories C
+        WHERE N.Id LIKE C.NewsId AND C.Category LIKE '${category}'
+      `;
+      const result = await request.query(query);
+      res.status(200).json({
+        news: result.recordset
+      });
+
+    } catch (err) {
+      console.log(`Failed to fetch news for category ${req.params.category} - ${err}`);
     }
   });
 
