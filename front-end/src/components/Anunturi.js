@@ -1,11 +1,27 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import "../styles/news/News.css";
 /* Components */
-import anunturi from "../anunturi.json";
 import Header from "./Header";
 import NewsItem from "./Anunturi/Anunt";
 
 const News = () => {
+  const [news, setNews] = useState([]);
+
+  const fetchNews = async () => {
+    try {
+      const response = await axios.get('/news');
+      setNews(news => [...response.data.news, ...news]);
+
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  useEffect(() => {
+    fetchNews();
+  }, []);
+
   return (
     <>
       <Header
@@ -15,8 +31,8 @@ const News = () => {
         subtitle=""
       />
       <section className="secondary-container dark-bg-container">
-        {anunturi.map(({ title, description, tags, links }, index) => {
-          return <NewsItem key={index} title={title} description={description} tags={tags} links={links} />
+        {news.map(({ Id, Title, Content }) => {
+          return <NewsItem key={Id} id={Id} title={Title} content={Content} />
         })}
       </section>
     </>

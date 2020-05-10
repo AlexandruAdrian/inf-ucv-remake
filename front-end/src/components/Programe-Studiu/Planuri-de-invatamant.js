@@ -11,7 +11,7 @@ const Plans = () => {
         <ul>
           <li>
             <a
-              href="http://inf.ucv.ro/documents/invatamant/planuri/licenta/plan-invatamant-licenta-2018-2019-I.pdf"
+              href="http://localhost:8000/documents/plan-invatamant-licenta-2018-2019-I.pdf"
               target="_blank"
               rel="noopener noreferrer"
             >Anul I</a>,
@@ -20,7 +20,7 @@ const Plans = () => {
 
           <li>
             <a
-              href="http://inf.ucv.ro/documents/invatamant/planuri/licenta/plan-invatamant-licenta-2018-2019-II.pdf"
+              href="http://localhost:8000/documents/plan-invatamant-licenta-2018-2019-II.pdf"
               target="_blank"
               rel="noopener noreferrer"
             >Anul II</a>,
@@ -29,7 +29,7 @@ const Plans = () => {
 
           <li>
             <a
-              href="http://inf.ucv.ro/documents/invatamant/planuri/licenta/plan-invatamant-licenta-2018-2019-III.pdf"
+              href="http://localhost:8000/documents/plan-invatamant-licenta-2018-2019-III.pdf"
               target="_blank"
               rel="noopener noreferrer"
             >Anul III</a>,
@@ -49,10 +49,10 @@ const Plans = () => {
               rel="noopener noreferrer"
             >Anul I</a>,
             promotia 2015-2017, (planul promotiei: <a
-              href="http://inf.ucv.ro/documents/licenta/planuri/2015/PLAN%20INVATAMANT-MASTERAT-%20MIA-2015-2016%20A1.pdf"
+              href="http://localhost:8000/documents/plan-invatamant-masterat-mia-2015-2016-a1.pdf"
               target="_blank"
               rel="noopener noreferrer">a1</a>, <a
-                href="http://inf.ucv.ro/documents/licenta/planuri/2015/PLAN%20INVATAMANT-MASTERAT-%20MIA-2015-2016%20A2.pdf"
+                href="http://localhost:8000/documents/plan-invatamant-masterat-mia-2015-2016-a2.pdf"
                 target="_blank"
                 rel="noopener noreferrer">a2</a>)
           </li>
@@ -64,10 +64,10 @@ const Plans = () => {
               rel="noopener noreferrer"
             >Anul II</a>,
             promotia 2014-2016, (planul promotiei: <a
-              href="http://inf.ucv.ro/documents/invatamant/planuri/master/plan-invatamant-MIA-2014-2015-1.pdf"
+              href="http://localhost:8000/documents/plan-invatamant-MIA-2014-2015-1.pdf"
               target="_blank"
               rel="noopener noreferrer">a1</a>, <a
-                href="http://inf.ucv.ro/documents/invatamant/planuri/master/plan-invatamant-MIA-2014-2015-2.pdf"
+                href="http://localhost:8000/documents/plan-invatamant-MIA-2014-2015-2.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
               >a2</a>)
@@ -78,10 +78,10 @@ const Plans = () => {
         <ul>
           <li>
             Anul I, promotia 2018-2020, (planul promotiei: <a
-              href="http://inf.ucv.ro/documents/invatamant/planuri/master/plan-invatamant-master-TPI-2018-2019-I.pdf"
+              href="http://localhost:8000/documents/plan-invatamant-master-TPI-2018-2019-I.pdf"
               target="_blank"
               rel="noopener noreferrer">a1</a>, <a
-                href="http://inf.ucv.ro/documents/invatamant/planuri/master/plan-invatamant-master-TPI-2018-2019-II.pdf"
+                href="http://localhost:8000/documents/plan-invatamant-master-TPI-2018-2019-II.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
               >a2</a>)

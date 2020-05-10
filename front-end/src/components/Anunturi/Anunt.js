@@ -1,14 +1,30 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
-const NewsItem = ({ title, description, tags, links }) => {
+const NewsItem = ({ id, title, content }) => {
+  const [tags, setTags] = useState([]);
+  const [paragraphs] = useState(content.split("\n"));
+
+  const fetchTagsAndLinks = async () => {
+    try {
+      const response = await axios.get(`/news/${id}/tags`);
+      setTags(tags => [...response.data.tags, ...tags]);
+    } catch (err) {
+      console.log(err);
+    }
+  }
+  useEffect(() => {
+    fetchTagsAndLinks();
+  }, []);
+
   const findLinksInParagraph = (paragraph = "") => {
     const linkPositions = [];
     let startIndex = 0;
     let linkIndex;
-    tags.forEach((tag, tagIndex) => {
-      while ((linkIndex = paragraph.indexOf(tag, startIndex)) > -1) {
-        linkPositions.push({ start: linkIndex, end: linkIndex + tag.length, link: links[tagIndex] });
-        startIndex = linkIndex + tag.length;
+    tags.forEach(({ Tag, Link }) => {
+      while ((linkIndex = paragraph.indexOf(Tag, startIndex)) > -1) {
+        linkPositions.push({ start: linkIndex, end: linkIndex + Tag.length, link: Link });
+        startIndex = linkIndex + Tag.length;
       }
     });
 
@@ -36,15 +52,11 @@ const NewsItem = ({ title, description, tags, links }) => {
   return (
     <article className="news-item">
       <h4>{title}</h4>
-      {description.map((paragraph, index) => {
-        if (paragraph === " ") {
-          return <br key={index} />
-        } else {
-          const linkPositions = findLinksInParagraph(paragraph);
-          const parts = linkText(paragraph, linkPositions);
+      {paragraphs.map((paragraph, index) => {
+        const linkPositions = findLinksInParagraph(paragraph);
+        const parts = linkText(paragraph, linkPositions);
 
-          return <p key={index}>{parts}</p>
-        }
+        return <p key={index}>{parts}</p>
       })}
     </article>
   );

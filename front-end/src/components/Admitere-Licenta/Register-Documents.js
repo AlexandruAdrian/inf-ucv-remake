@@ -88,11 +88,11 @@ const RegisterDocuments = () => {
         orfani de ambii parinti, cei proveniti de la casele de copii sau din plasament familial.
       </p>
 
-      <a href="http://inf.ucv.ro/documents/pliant-admitere-2019-septembrie.pdf" target="_blank" rel="noopener noreferrer">Pliant Admitere</a>
+      <a href="http://localhost:8000/documents/pliant-admitere-2019-septembrie.pdf" target="_blank" rel="noopener noreferrer">Pliant Admitere</a>
 
       <p>
         Pentru mai multe detalii puteti accesa <a
-          href="https://www.ucv.ro/pdf/admitere/2019/Regulament_organiz_si_desf_concurs_de%20admitere_2019_2020.pdf"
+          href="http://localhost:8000/documents/Regulament_organiz_si_desf_concurs_de admitere_2019_2020.pdf"
           target="_blank"
           rel="noopener noreferrer">
           Regulamentul de organizare si desfasurare a concursului de admitere al universitatii
