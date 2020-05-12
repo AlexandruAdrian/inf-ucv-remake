@@ -51,8 +51,12 @@ function tagRoutes() {
         query = `INSERT INTO Tags VALUES ('${req.body.newsId}', '${tag}', '${link}')`;
         await request.query(query);
 
+        query = `SELECT TOP 1 * FROM Tags ORDER BY Id DESC`;
+        const result = await request.query(query);
+
         return res.type('application/json').status(200).json({
-          message: 'Tag adaugat cu succes'
+          message: 'Tag adaugat cu succes',
+          tag: result.recordset
         });
       }
 
