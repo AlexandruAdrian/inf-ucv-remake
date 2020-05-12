@@ -61,8 +61,13 @@ function categoryRoutes() {
         } else {
           query = `INSERT INTO Categories VALUES ('${req.body.newsId}', '${category}')`;
           await request.query(query);
+
+          query = `SELECT TOP 1 * FROM Categories ORDER BY Id DESC`;
+          const result = await request.query(query);
+
           return res.type('application/json').json({
-            message: 'Successfully added category'
+            message: 'Successfully added category',
+            category: result.recordset
           })
         }
 

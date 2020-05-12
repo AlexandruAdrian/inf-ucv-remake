@@ -126,7 +126,6 @@ function newsRoute() {
       const news = new News(req.body);
       const request = new mssql.Request();
       const data = news.getIdTitleContent();
-
       if (data.title.trim().length === 0) {
         return res.type('application/json').status(400).json({
           message: 'Campul titlu nu poate fi gol'
