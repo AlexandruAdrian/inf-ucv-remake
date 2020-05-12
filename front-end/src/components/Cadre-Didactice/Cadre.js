@@ -9,7 +9,6 @@ import { AdminContext } from "../../context/admin-context";
 const Cadre = () => {
   const [teachers, setTeachers] = useState([]);
   const isAdmin = useContext(AdminContext);
-
   const fetchTeachers = async () => {
     try {
       const response = await axios.get("/teachers");
@@ -19,6 +18,23 @@ const Cadre = () => {
       console.log(err);
     }
   };
+
+  const handleDelete = async (id, e) => {
+    try {
+      // Grab token and attach it to http request header
+      const token = localStorage.getItem("Token");
+      await axios.delete(`/teachers/${id}`, {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      });
+
+      setTeachers(teachers => teachers.filter((t) => t.Id !== id))
+
+    } catch (err) {
+      console.log(`Failed to delete teacher record - ${err.response.data.message}`);
+    }
+  }
 
   useEffect(() => {
     fetchTeachers();
@@ -36,6 +52,7 @@ const Cadre = () => {
           return (
             <Cadru
               key={cadru.Id}
+              id={cadru.Id}
               profile={cadru.PathToPicture}
               name={cadru.FullName}
               grade={cadru.Grade}
@@ -45,6 +62,7 @@ const Cadre = () => {
               fax={cadru.Fax}
               email={cadru.Email}
               isAdmin={isAdmin}
+              handleDelete={handleDelete}
             />
           )
         })}

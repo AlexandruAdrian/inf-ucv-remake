@@ -1,10 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
+/* Utils */
+import { findLinksInParagraph, linkText } from "../../utils/utils";
 /* Components */
-import Tool from "../Admin/Tool";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+/* Context */
+import { AdminContext } from "../../context/admin-context";
+import { NewsDispatchContext } from "../../context/news-context";
 
-const NewsItem = ({ id = "", title = "", content = " ", extended, isAdmin }) => {
+const NewsItem = ({ id = "", title = "", content = " " }) => {
   const [tags, setTags] = useState([]);
+  const isAdmin = useContext(AdminContext);
+  const dispatch = useContext(NewsDispatchContext);
 
   useEffect(() => {
     const fetchTagsAndLinks = async () => {
@@ -16,64 +23,46 @@ const NewsItem = ({ id = "", title = "", content = " ", extended, isAdmin }) => 
       }
     }
 
-    if (extended) {
-      fetchTagsAndLinks();
+    fetchTagsAndLinks();
+  }, [id]);
+
+  const handleDelete = async (newsId) => {
+    try {
+      const token = localStorage.getItem('Token');
+      await axios.delete(`/news/${newsId}`, {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      });
+      dispatch({ type: 'DELETE_ARTICLE', payload: newsId });
+    } catch (err) {
+      console.log(err);
     }
-  }, [extended, id]);
-
-  const findLinksInParagraph = (paragraph = "") => {
-    const linkPositions = [];
-    let startIndex = 0;
-    let linkIndex;
-    tags.forEach(({ Tag, Link }) => {
-      while ((linkIndex = paragraph.indexOf(Tag, startIndex)) > -1) {
-        linkPositions.push({ start: linkIndex, end: linkIndex + Tag.length, link: Link });
-        startIndex = linkIndex + Tag.length;
-      }
-    });
-
-    return linkPositions;
-  }
-
-  const linkText = (paragraph = "", linkPositions = []) => {
-    const parts = [];
-    let currentIndex = 0;
-    linkPositions.forEach(({ start, end, link }) => {
-      if (currentIndex < start) {
-        parts.push(paragraph.slice(currentIndex, start));
-      }
-      parts.push(<a key={start} href={link} target="_blank" rel="noopener noreferrer">{paragraph.slice(start, end)}</a>);
-      currentIndex = end;
-    });
-
-    if (currentIndex < paragraph.length - 1) {
-      parts.push(paragraph.slice(currentIndex));
-    }
-
-    return parts;
   }
 
   return (
-    <article className={extended ? 'extended-news-item container white-bg-container' : 'news-item'}>
+    <article className={'news-item'}>
       <h4>{title}</h4>
-      {extended ?
-        content.split("\n").map((paragraph, index) => {
-          const linkPositions = findLinksInParagraph(paragraph);
-          const parts = linkText(paragraph, linkPositions);
+      <div className={'news-desc'}>
+        {
+          content.split("\n").map((paragraph, index) => {
+            const linkPositions = findLinksInParagraph(paragraph, tags);
+            const parts = linkText(paragraph, linkPositions);
 
-          return <p key={index}>{parts}</p>
-        })
-        :
-        <>
-          <p>{content.slice(0, 180)}...</p>
-          <a href={`/anunturi/${id}`} className="read-more">Citeste mai mult</a>
-          {isAdmin &&
-            <div className="card-toolbar">
-              <Tool icon='pen' text='Editeaza' />
-              <Tool icon='trash-alt' text='Sterge' />
-            </div>
-          }
-        </>
+            return <p key={index}>{
+              content.length < 180 ? parts : content.slice(0, 220).concat('...')
+            }</p>
+          })
+        }
+      </div>
+      <a href={`/anunturi/${id}`} className="read-more">Citeste mai mult</a>
+      {isAdmin &&
+        <div className="card-toolbar">
+          <div className='tool delete' onClick={() => handleDelete(id)}>
+            <FontAwesomeIcon icon='trash-alt' size="sm" />
+            <p>Sterge</p>
+          </div>
+        </div>
       }
     </article>
   );

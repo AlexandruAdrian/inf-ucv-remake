@@ -1,8 +1,8 @@
 import React from 'react';
 import "../../styles/cadre-didactice/Cadru.css"
-import Tool from "../Admin/Tool";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const Cadru = ({ profile, name, grade, title, webPage, phone, fax, email, isAdmin }) => {
+const Cadru = ({ id, profile, name, grade, title, webPage, phone, fax, email, isAdmin, handleDelete }) => {
   return (
     <section className="teacher-card">
       <div className="teacher">
@@ -22,8 +22,14 @@ const Cadru = ({ profile, name, grade, title, webPage, phone, fax, email, isAdmi
       </div>
       {isAdmin &&
         <div className="card-toolbar">
-          <Tool icon='pen' text='Editeaza' />
-          <Tool icon='trash-alt' text='Sterge' />
+          <div className='tool edit'>
+            <FontAwesomeIcon icon='pen' size="sm" />
+            <p>Editeaza</p>
+          </div>
+          <div className='tool delete' onClick={() => handleDelete(id)}>
+            <FontAwesomeIcon icon='trash-alt' size="sm" />
+            <p>Sterge</p>
+          </div>
         </div>
       }
     </section>

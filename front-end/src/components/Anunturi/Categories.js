@@ -1,8 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
+/* Context */
+import { NewsDispatchContext } from "../../context/news-context";
 
-const Categories = ({ handleNews }) => {
+const Categories = () => {
   const [categories, setCategories] = useState(['Toate']);
+  const dispatch = useContext(NewsDispatchContext);
 
   const fetchCategories = async () => {
     try {
@@ -17,7 +20,7 @@ const Categories = ({ handleNews }) => {
   const handleChange = async (e) => {
     const { value } = e.target;
     const response = await axios.get(`/news/${value}`);
-    handleNews(response.data.news);
+    dispatch({ type: 'CATEGORY_NEWS', payload: [...response.data.news] });
   }
 
   useEffect(() => {

@@ -15,6 +15,7 @@ import NoMatch from "./components/NoMatch";
 import Admin from "./components/Admin";
 /* Contexts*/
 import { AdminContextProvider } from "./context/admin-context";
+import { NewsContextProvider } from "./context/news-context";
 
 function App() {
   axios.defaults.baseURL = "http://localhost:8000";
@@ -30,8 +31,10 @@ function App() {
         <AdminContextProvider>
           <Route path="/user/login" component={Admin} />
           <Route path="/cadre-didactice" component={Teachers} />
-          <Route path="/anunturi" exact component={News} />
-          <Route path="/anunturi/:newsId" component={ExtendedArticle} />
+          <NewsContextProvider>
+            <Route path="/anunturi" exact component={News} />
+            <Route path="/anunturi/:newsId" component={ExtendedArticle} />
+          </NewsContextProvider>
         </AdminContextProvider>
         <Route component={NoMatch} />
       </Switch>
