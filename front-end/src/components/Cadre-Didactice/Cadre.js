@@ -3,8 +3,7 @@ import axios from 'axios';
 /* Components */
 import Cadru from "./Cadru";
 import Tool from "../Admin/Tool";
-import TeacherEditForm from "../Admin/TeacherEditForm";
-import TeacherAddForm from "../Admin/TeacherAddForm";
+import TeacherForm from "../Admin/TeacherForm";
 /* Context */
 import { AdminContext } from "../../context/admin-context";
 import { TeachersStateContext, TeachersDispatchContext } from "../../context/teachers-context";
@@ -14,15 +13,16 @@ const Cadre = () => {
   const teachers = useContext(TeachersStateContext);
   const dispatch = useContext(TeachersDispatchContext);
 
-  const [showEdit, setShowEdit] = useState(false);
-  const [showAdd, setShowAdd] = useState(true);
+  const [showForm, setShowForm] = useState(false);
+  const [isEdit, setIsEdit] = useState(false);
 
-  const toggleEdit = () => {
-    setShowEdit(showEdit => !showEdit);
+  const toggleForm = () => {
+    setShowForm(show => !show);
   }
 
-  const toggleAdd = () => {
-    setShowAdd(showAdd => !showAdd);
+  const toggleFromEdit = () => {
+    setShowForm(show => !show);
+    setIsEdit(isEdit => !isEdit);
   }
 
   const handleDelete = async (id, e) => {
@@ -58,7 +58,7 @@ const Cadre = () => {
     <section className="container dark-bg-container">
       {isAdmin &&
         <div className="toolbar">
-          <div onClick={toggleAdd}>
+          <div onClick={toggleForm}>
             <Tool icon='plus' text='Adauga profesor' />
           </div>
         </div>
@@ -69,7 +69,7 @@ const Cadre = () => {
             <Cadru
               key={cadru.Id}
               id={cadru.Id}
-              profile={cadru.PathToPicture}
+              profile={cadru.Avatar}
               name={cadru.FullName}
               grade={cadru.Grade}
               title={cadru.Title}
@@ -79,13 +79,12 @@ const Cadre = () => {
               email={cadru.Email}
               isAdmin={isAdmin}
               handleDelete={handleDelete}
-              toggleEdit={toggleEdit}
+              toggleEdit={toggleFromEdit}
             />
           )
         })}
       </div>
-      {showEdit && <TeacherEditForm toggleEdit={toggleEdit} />}
-      {showAdd && <TeacherAddForm toggleAdd={toggleAdd} />}
+      {showForm && <TeacherForm toggler={toggleForm} isEdit={isEdit} />}
     </section>
   )
 }

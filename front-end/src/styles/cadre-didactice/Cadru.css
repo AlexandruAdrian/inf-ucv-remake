@@ -41,6 +41,7 @@
 
 .teacher ul li {
   margin-bottom: 5px;
+  word-wrap: break-word;
 }
 
 .teacher ul li a {

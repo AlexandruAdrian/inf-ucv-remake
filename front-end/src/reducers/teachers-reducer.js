@@ -9,7 +9,7 @@ export const teachersReducer = (teachers, action) => {
       return [...teachers_delete];
 
     case 'ADD_TEACHER':
-      return;
+      return [action.payload, ...teachers];
 
     case 'EDIT_TEACHER':
       return;
