@@ -83,9 +83,13 @@ function teachersRoute() {
         }
     });
 
-    router.put('/teachers/:id', isAuthorized, async (req, res) => {
+    router.put('/teachers/:id', isAuthorized, upload.single('Avatar'), async (req, res) => {
         try {
             const teacher = new Teacher(req.body);
+            teacher.capitalizeProperties();
+            if (req.file) {
+                teacher.setAvatar(req.file.originalname);
+            }
             const request = new mssql.Request();
             const query = `
                 UPDATE Teachers
@@ -97,7 +101,7 @@ function teachersRoute() {
                     Phone = '${teacher.getPhone()}',
                     Fax = '${teacher.getFax()}',
                     Email = '${teacher.getEmail()}',
-                    PathToPicture = '${teacher.getPathToPicture()}'
+                    PathToPicture = '${teacher.getAvatar()}'
                 WHERE Id = ${req.params.id}
             `
             await request.query(query);
