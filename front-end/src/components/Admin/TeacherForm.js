@@ -1,24 +1,83 @@
-import React, { useState, useContext } from 'react';
-import axios from 'axios';
+import React from 'react';
 import "../../styles/admin/teacher-form.css";
 /* Components */
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-/* Context */
-import { TeachersDispatchContext } from "../../context/teachers-context";
 
-const TeacherForm = ({ toggler, isEdit }) => {
-  const [values, setValues] = useState({
-    FullName: '',
-    Grade: '',
-    Title: '',
-    WebPage: '',
-    Phone: '',
-    Fax: '',
-    Email: '',
-  });
-  const [selectedFile, setSelectedFile] = useState(null);
+const TeacherForm = ({ toggler, fetch, values, setValues, selectedFile, setSelectedFile }) => {
 
-  const dispatch = useContext(TeachersDispatchContext)
+  const handler = async (e) => {
+    e.preventDefault();
+    const passed = validateForm();
+    if (!passed) return;
+
+    const formData = new FormData();
+    if (values.Id) {
+      formData.append("Id", values.Id);
+    }
+    formData.append('FullName', values.FullName);
+    formData.append('Grade', values.Grade);
+    formData.append('Title', values.Title);
+    formData.append('WebPage', values.WebPage);
+    formData.append('Phone', values.Phone);
+    formData.append('Fax', values.Fax);
+    formData.append('Email', values.Email);
+    if (selectedFile) {
+      formData.append('Avatar', selectedFile);
+    } else {
+      formData.append('Avatar', values.Avatar);
+    }
+
+    await fetch(formData);
+  }
+
+  const validateForm = () => {
+    if (values.FullName.length === 0) {
+      alert("Campul *Nume* nu poate fi gol.");
+      return false;
+    }
+
+    if (values.Grade.length === 0) {
+      alert("Campul *Grad* nu poate fi gol.");
+      return false;
+    }
+
+    if (values.Title.length === 0) {
+      alert("Campul *Titlu* nu poate fi gol.");
+      return false;
+    }
+
+    if (values.WebPage.length === 0) {
+      alert("Campul *Pagina Web* nu poate fi gol.");
+      return false;
+    }
+
+    if (values.Phone.length === 0 && values.Fax.length === 0) {
+      alert("Asigurati-va ca ati completat cel putin unu din cele doua campuri *Fax* sau *Telefon de serviciu*");
+      return false;
+    }
+
+    if (!validateEmail(values.Email)) {
+      alert("Adresa de e-mail este invalida.")
+      return false;
+    }
+
+    if (!validateLink(values.WebPage) || values.WebPage.indexOf('http://') === -1) {
+      alert("Pagina web este invalida.");
+      return false;
+    }
+
+    if (!validatePhone(values.Phone)) {
+      alert("Numarul de telefon este invalid.");
+      return false;
+    }
+
+    if (!validatePhone(values.Fax)) {
+      alert("Numarul de fax este invalid.");
+      return false;
+    }
+
+    return true;
+  }
 
   const validateEmail = (email) => {
     // eslint-disable-next-line
@@ -51,85 +110,6 @@ const TeacherForm = ({ toggler, isEdit }) => {
     });
   }
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    if (values.FullName.length === 0) {
-      alert("Campul *Nume* nu poate fi gol.");
-      return;
-    }
-
-    if (values.Grade.length === 0) {
-      alert("Campul *Grad* nu poate fi gol.");
-      return;
-    }
-
-    if (values.Title.length === 0) {
-      alert("Campul *Titlu* nu poate fi gol.");
-      return;
-    }
-
-    if (values.WebPage.length === 0) {
-      alert("Campul *Pagina Web* nu poate fi gol.");
-      return;
-    }
-
-    if (values.Phone.length === 0 && values.Fax.length === 0) {
-      alert("Asigurati-va ca ati completat cel putin unu din cele doua campuri *Fax* sau *Telefon de serviciu*");
-      return;
-    }
-
-    if (!validateEmail(values.Email)) {
-      alert("Adresa de e-mail este invalida.")
-      return;
-    }
-
-    if (!validateLink(values.WebPage) || values.WebPage.indexOf('http://') === -1) {
-      alert("Pagina web este invalida.");
-      return;
-    }
-
-    if (!validatePhone(values.Phone)) {
-      alert("Numarul de telefon este invalid.");
-      return;
-    }
-
-    if (!validatePhone(values.Fax)) {
-      alert("Numarul de fax este invalid.");
-      return;
-    }
-
-    const formData = new FormData();
-    formData.append('FullName', values.FullName);
-    formData.append('Grade', values.Grade);
-    formData.append('Title', values.Title);
-    formData.append('WebPage', values.WebPage);
-    formData.append('Phone', values.Phone);
-    formData.append('Fax', values.Fax);
-    formData.append('Email', values.Email);
-    formData.append('Avatar', selectedFile);
-
-    try {
-      const token = localStorage.getItem("Token");
-      const result = await axios.post('/teachers', formData, {
-        headers: {
-          'content-type': 'multipart/form-data',
-          Authorization: `Bearer ${token}`
-        }
-      })
-
-      if (!selectedFile) {
-        dispatch({ type: 'ADD_TEACHER', payload: result.data.teacher });
-      }
-
-      toggler();
-    } catch (err) {
-      console.log(err);
-    }
-
-    return e.preventDefault();
-  }
-
   return (
     <div className='overlay'>
       <div className="teacher-form-container">
@@ -138,7 +118,7 @@ const TeacherForm = ({ toggler, isEdit }) => {
           <input type="text" id="full-name" name="FullName" value={values.FullName} placeholder="Ex. Popescu Adrian" onChange={(e) => handleChange(e)} />
           <br />
           <label htmlFor='grade'>Grad</label>
-          <input type="text" id="grade" name="Grade" values={values.Grade} placeholder="Ex. Asist." onChange={(e) => handleChange(e)} />
+          <input type="text" id="grade" name="Grade" value={values.Grade} placeholder="Ex. Asist." onChange={(e) => handleChange(e)} />
           <br />
           <label htmlFor='teacher-title'>Titlu</label>
           <input type="text" id="teacher-title" name="Title" value={values.Title} placeholder="Ex. Dr." onChange={(e) => handleChange(e)} />
@@ -157,7 +137,8 @@ const TeacherForm = ({ toggler, isEdit }) => {
           <br />
           <label htmlFor="avatar">Avatar</label>
           <input type="file" accept="immage/*" id="avatar" name="Avatar" onChange={e => handleFile(e)} />
-          <button onClick={e => handleSubmit(e)}>{isEdit ? 'Salveaza' : 'Adauga'}</button>
+
+          <button onClick={(e) => handler(e, values, validateForm, selectedFile)}>Salveaza</button>
         </form>
       </div>
       <div onClick={toggler} className="close-form">

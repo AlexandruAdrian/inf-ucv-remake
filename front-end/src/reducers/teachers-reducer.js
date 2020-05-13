@@ -8,11 +8,18 @@ export const teachersReducer = (teachers, action) => {
       teachers_delete = teachers_delete.filter(teacher => teacher.Id !== action.payload);
       return [...teachers_delete];
 
-    case 'ADD_TEACHER':
-      return [action.payload, ...teachers];
-
     case 'EDIT_TEACHER':
-      return;
+      let teachers_edit = [...teachers];
+      teachers_edit = teachers_edit.map(teacher => {
+        if (teacher.Id === action.payload.Id) {
+          teacher = action.payload;
+        }
+        return teacher;
+      })
+      return [...teachers_edit];
+
+    case 'ADD_TEACHER':
+      return [...teachers, action.payload];
 
     default:
       return;

@@ -3,7 +3,8 @@ import axios from 'axios';
 /* Components */
 import Cadru from "./Cadru";
 import Tool from "../Admin/Tool";
-import TeacherForm from "../Admin/TeacherForm";
+import TeacherAddForm from "../Admin/TeacherAddForm";
+import TeacherEditForm from "../Admin/TeacherEditForm";
 /* Context */
 import { AdminContext } from "../../context/admin-context";
 import { TeachersStateContext, TeachersDispatchContext } from "../../context/teachers-context";
@@ -13,16 +14,17 @@ const Cadre = () => {
   const teachers = useContext(TeachersStateContext);
   const dispatch = useContext(TeachersDispatchContext);
 
-  const [showForm, setShowForm] = useState(false);
-  const [isEdit, setIsEdit] = useState(false);
+  const [showAddForm, setShowAddForm] = useState(false);
+  const [showEditForm, setShowEditForm] = useState(false);
+  const [editCadru, setEditCadru] = useState({});
 
-  const toggleForm = () => {
-    setShowForm(show => !show);
+  const toggleAddForm = () => {
+    setShowAddForm(show => !show);
   }
 
-  const toggleFromEdit = () => {
-    setShowForm(show => !show);
-    setIsEdit(isEdit => !isEdit);
+  const toggleEditForm = (cadru) => {
+    setShowEditForm(show => !show);
+    setEditCadru({ ...cadru });
   }
 
   const handleDelete = async (id, e) => {
@@ -58,7 +60,7 @@ const Cadre = () => {
     <section className="container dark-bg-container">
       {isAdmin &&
         <div className="toolbar">
-          <div onClick={toggleForm}>
+          <div onClick={toggleAddForm}>
             <Tool icon='plus' text='Adauga profesor' />
           </div>
         </div>
@@ -68,23 +70,24 @@ const Cadre = () => {
           return (
             <Cadru
               key={cadru.Id}
-              id={cadru.Id}
-              profile={cadru.Avatar}
-              name={cadru.FullName}
-              grade={cadru.Grade}
-              title={cadru.Title}
-              webPage={cadru.WebPage}
-              phone={cadru.Phone}
-              fax={cadru.Fax}
-              email={cadru.Email}
+              Id={cadru.Id}
+              Avatar={cadru.Avatar}
+              FullName={cadru.FullName}
+              Grade={cadru.Grade}
+              Title={cadru.Title}
+              WebPage={cadru.WebPage}
+              Phone={cadru.Phone}
+              Fax={cadru.Fax}
+              Email={cadru.Email}
               isAdmin={isAdmin}
               handleDelete={handleDelete}
-              toggleEdit={toggleFromEdit}
+              toggleEdit={toggleEditForm}
             />
           )
         })}
       </div>
-      {showForm && <TeacherForm toggler={toggleForm} isEdit={isEdit} />}
+      {showAddForm && <TeacherAddForm toggler={toggleAddForm} />}
+      {showEditForm && <TeacherEditForm toggler={toggleEditForm} cadru={editCadru} setEditCadru={setEditCadru} />}
     </section>
   )
 }
