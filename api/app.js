@@ -1,6 +1,5 @@
 require('dotenv').config();
 const express = require('express');
-const path = require('path');
 const bodyParser = require('body-parser');
 const mssql = require('mssql');
 const cors = require('cors');
@@ -28,7 +27,8 @@ const dbConfig = {
             // Middleware
             app.use(bodyParser.json());
             app.use(cors());
-            app.use('/documents', express.static(path.join(__dirname + '/public')));
+            app.use('/documents', express.static("../front-end/public"));
+
             // Routes
             const teacherRoutes = require('./routes/teachers-route');
             const adminRoutes = require('./routes/admin-route');

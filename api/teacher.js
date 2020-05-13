@@ -7,15 +7,16 @@ class Teacher {
   #fax;
   #email;
   #pathToPicture;
+  #avatar;
   constructor(data) {
-    this.fullName = data.fullName;
-    this.grade = data.grade;
-    this.title = data.title;
-    this.webPage = data.webPage;
-    this.phone = data.phone;
-    this.fax = data.fax;
-    this.email = data.email;
-    this.pathToPicture = data.pathToPicture || '/images/profile/undefined.png'
+    this.#fullName = data.FullName;
+    this.#grade = data.Grade;
+    this.#title = data.Title;
+    this.#webPage = data.WebPage;
+    this.#phone = data.Phone;
+    this.#fax = data.Fax;
+    this.#email = data.Email;
+    this.#avatar = `/images/profile/${data.Avatar}` || '/images/profile/undefined.png'
   }
 
   getFullName() {
@@ -46,8 +47,25 @@ class Teacher {
     return this.#email;
   }
 
-  getPathToPicture() {
-    return this.#pathToPicture;
+  getAvatar() {
+    return this.#avatar;
+  }
+
+  getEverything() {
+    return {
+      fullName: this.#fullName,
+      grade: this.#grade,
+      title: this.#title,
+      webPage: this.#webPage,
+      phone: this.#phone,
+      fax: this.#fax,
+      email: this.#email,
+      avatar: this.#avatar
+    }
+  }
+
+  setAvatar(_avatar) {
+    this.#avatar = `/images/profile/${_avatar}`;
   }
 }
 

@@ -1,7 +1,19 @@
 const express = require('express');
 const mssql = require('mssql');
+const multer = require('multer');
 const isAuthorized = require('../middleware/authorization');
 const Teacher = require('../teacher');
+
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, '../front-end/public/images/profile');
+    },
+    filename: function (req, file, cb) {
+        cb(null, file.originalname);
+    }
+});
+
+const upload = multer({ storage: storage });
 
 function teachersRoute() {
     const router = express.Router();
@@ -20,11 +32,12 @@ function teachersRoute() {
         }
     });
 
-    router.post('/teachers', isAuthorized, async (req, res) => {
+    router.post('/teachers', isAuthorized, upload.single('Avatar'), async (req, res) => {
         try {
             const teacher = new Teacher(req.body);
+            teacher.setAvatar(req.file.originalname);
             const request = new mssql.Request();
-            const query = `INSERT INTO Teachers VALUES (
+            let query = `INSERT INTO Teachers VALUES (
                 '${teacher.getFullName()}',
                 '${teacher.getGrade()}',
                 '${teacher.getTitle()}',
@@ -32,15 +45,16 @@ function teachersRoute() {
                 '${teacher.getPhone()}',
                 '${teacher.getFax()}',
                 '${teacher.getEmail()}',
-                '${teacher.getPathToPicture()}'
+                '${teacher.getAvatar()}'
                 )`;
 
             await request.query(query);
-
+            query = `SELECT TOP 1 * FROM Teachers ORDER BY Id DESC`;
+            const result = await request.query(query);
 
             res.type('application/json').status(200).json({
                 message: 'Adaugarea inregistrarii profesorului a fost efectuata cu succes',
-                teacher
+                teacher: result.recordset[0]
             })
         } catch (err) {
             console.log(`Failed to insert a new teacher record - ${err}`);
