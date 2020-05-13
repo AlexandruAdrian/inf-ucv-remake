@@ -34,7 +34,7 @@ const TeacherForm = ({ toggler, isEdit }) => {
   }
 
   const validatePhone = (phone) => {
-    const expression = /^[0-9]*-$/;
+    const expression = /^[0-9 -]+$/;
 
     return expression.test(phone);
   }
