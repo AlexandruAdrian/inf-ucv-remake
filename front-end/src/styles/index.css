@@ -122,6 +122,8 @@ body {
     justify-content: center;
     flex-direction: column;
     width: 90%;
+    border: 1px dashed #222831;
+    padding: 5px 0;
 }
 
 .overlay-container input, .overlay-container textarea {
@@ -129,7 +131,7 @@ body {
     min-width: 250px;
     padding: 5px 10px;
     width: 80%;
-    min-width: 490px;
+    min-width: 480px;
 }
 
 .overlay-container > form > input:nth-child(2) {
@@ -176,7 +178,7 @@ body {
 
 .details {
     display: flex;
-    width: 70%;
+    width: 90%;
     margin: 20px 0 0;
     border: 1px dashed #222831;
     padding: 3px;
@@ -194,6 +196,7 @@ body {
     justify-self: flex-start;
     align-self: flex-start;
     width: 50%;
+    min-width: 305px;
 }
 
 .add-cat-form {
@@ -291,13 +294,14 @@ body {
     margin-right: 10px;
     padding: 2px 6px;
     border-radius: 5px;
-    min-width: 120px;
+    min-width: 80px;
     color: #fff;
     background: #222831;
 }
 
 .wrapper p {
-    margin-right: 10px;
+    max-width: 93%;
+    word-wrap: break-word;
 }
 
 .details .tags {
@@ -318,15 +322,32 @@ body {
     cursor: pointer;
 }
 
-
 @media only screen and (max-width: 600px) {
     .container, .secondary-container {
         padding: 25px 10px;
     }
 
+    .toolbar {
+        flex-direction: column;
+        align-items: center;
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .toolbar #cat-form {
+        margin-top: 10px;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .toolbar #cat-form label {
+        margin-bottom: 5px;
+    }
+
     .overlay-container input, .overlay-container textarea {
         width: 90%;
-        min-width: 260px;
+        min-width: 250px;
     }
 
     .overlay-container .details:nth-child(2) {
@@ -350,6 +371,10 @@ body {
 
     .add-cat-form {
         top: 0;
+    }
+
+    .categories {
+        min-width: 100px;
     }
 
     .categories .wrapper {

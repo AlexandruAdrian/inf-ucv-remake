@@ -22,6 +22,9 @@ export const newsReducer = (news, action) => {
       const article = action.payload;
       return [article];
 
+    case 'ADD_ARTICLE':
+      return [...news, action.payload];
+
     default:
       return;
 

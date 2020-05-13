@@ -1,0 +1,159 @@
+.add-article {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 90%;
+  height: 100%;
+  padding: 15px 0;
+  background: #fff;
+  color: #222831;
+  border-radius: 10px;
+  overflow-y: auto;
+}
+
+.add-article form {
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+  border: 0;
+  padding-bottom: 10px;
+  align-items: flex-start;
+  justify-content: space-between;
+  cursor: default;
+  height: auto;
+}
+
+.add-article button:hover {
+  cursor: pointer;
+}
+
+.add-article label, .add-article p {
+  margin-bottom: 4px;
+  font-weight: bold;
+}
+
+.add-article select {
+  font-weight: bold;
+  padding: 5px;
+}
+
+.add-article form > div {
+  width: 49%;
+  display: flex;
+  flex-direction: column;
+  padding-left: 10px;
+}
+
+.add-article form input, .add-article form textarea {
+  width: 90%;
+  padding: 3px 5px;
+  font-family: 'Lato', 'sans-serif';
+}
+
+.add-article form textarea {
+  height: 140px;
+}
+
+.add-article > button {
+  background: dodgerblue;
+  border: 0;
+  border-radius: 5px;
+  color: #fff;
+  width: 200px;
+  padding: 10px 0;
+  font-weight: bold;
+}
+
+#add-article-categories {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+
+#add-article-categories > div:nth-child(2) {
+  display: flex;
+  justify-content: space-between;
+}
+
+#add-article-categories button {
+ background: dodgerblue;
+ border-radius: 5px;
+ color: #fff;
+ border: none;
+ width: 80px;
+ padding: 7px;
+ font-weight: bold;
+}
+
+#add-article-tags button {
+  width: 90%;
+  border: 0;
+  border-radius: 5px;
+  background: dodgerblue;
+  color: #fff;
+  margin-top: 20px;
+  font-weight: bold;
+  padding: 7px;
+}
+
+#categories-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+  width: 150px;
+  height: 100px;
+}
+
+#categories-container .wrapper {
+  margin-bottom: 10px;
+}
+
+#tags-container  {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+#tags-container .wrapper {
+  margin-top: 10px;
+  width: 90%;
+}
+
+
+@media only screen and (max-width: 600px) {
+  .add-article form {
+      flex-direction: column;
+      width: 100%;
+  }
+
+  .add-article form > div {
+      width: 100%;
+  }
+
+  #add-article-categories {
+      width: 98%;
+      height: 200px;
+  }
+
+  .add-article form input, .add-article form textarea {
+      width: 98%;
+      padding: 3px 5px;
+      font-family: 'Lato', 'sans-serif';
+  }
+
+  #add-article-tags button {
+      width: 98%;
+  }
+
+  #tags-container .wrapper {
+      width: 98%;
+  }
+
+  .add-article + .close-form {
+      color: #222831;
+      top: 15px;
+      right: 7%;
+  }
+}

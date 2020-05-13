@@ -42,7 +42,7 @@ Asigurati-va ca ambele campuri sunt completate.`
             Authorization: `Bearer ${token}`
           }
         });
-        console.log(result.data.tag);
+
         setTags(tags => [...tags, ...result.data.tag]);
       } catch (err) {
         console.log(err);

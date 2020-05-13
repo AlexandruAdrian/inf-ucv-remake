@@ -82,10 +82,10 @@ const EditForm = ({ toggleEdit, article, categories, setCategories, tags, setTag
       <section className='overlay-container'>
         <form>
           <label htmlFor="title">Titlu</label>
-          <input type="text" id="title" name="Title" value={Title} maxLength={100} onChange={handleChange}></input>
+          <input type="text" id="title" name="Title" value={Title} maxLength={100} onChange={handleChange} />
           <br />
           <label htmlFor='content'>Continut</label>
-          <textarea id="content" value={Content} onChange={handleChange} name="Content"></textarea>
+          <textarea id="content" value={Content} onChange={handleChange} name="Content" />
           <br />
           <button onClick={handleSave}>
             {isLoading ?

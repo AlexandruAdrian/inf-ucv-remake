@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import "../styles/news/News.css";
 /* Components */
@@ -6,11 +6,14 @@ import Header from "./Header";
 import NewsItem from "./Anunturi/Anunt";
 import Categories from "./Anunturi/Categories";
 import Tool from './Admin/Tool';
+import AddArticle from "./Admin/AddArticle";
 /* Context */
 import { AdminContext } from "../context/admin-context";
 import { NewsStateContext, NewsDispatchContext } from "../context/news-context";
 
 const News = () => {
+  const [showForm, setShowForm] = useState(false);
+
   const isAdmin = useContext(AdminContext);
   const news = useContext(NewsStateContext);
   const dispatch = useContext(NewsDispatchContext);
@@ -28,6 +31,10 @@ const News = () => {
     fetchNews();
   }, [dispatch]);
 
+  const toggleArticleForm = () => {
+    setShowForm(form => !form);
+  }
+
   return (
     <>
       <Header
@@ -38,7 +45,7 @@ const News = () => {
       />
       <section className="container dark-bg-container">
         <div className="toolbar">
-          {isAdmin && <Tool icon="plus" text="Adauga anunt" />}
+          {isAdmin && <div onClick={toggleArticleForm}><Tool icon="plus" text="Adauga anunt" /></div>}
           <Categories dispatch={dispatch} />
         </div>
         <div className="news">
@@ -52,10 +59,11 @@ const News = () => {
                 isAdmin={isAdmin}
               />
             }) :
-            <p>Momentan nu a fost introdus nici un articol.</p>
+            <p>Momentan nu a fost introdus nici un anunt.</p>
           }
         </div>
       </section>
+      {showForm && <AddArticle toggleForm={toggleArticleForm} />}
     </>
   )
 }

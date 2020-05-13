@@ -68,7 +68,8 @@
   font-size: 20px;
   text-align: center;
   margin-bottom: 15px;
-  
+  min-height: 75px;
+  overflow-x: hidden;
 }
 
 .news-item .news-desc {

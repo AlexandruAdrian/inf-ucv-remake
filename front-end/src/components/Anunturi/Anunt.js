@@ -55,7 +55,7 @@ const NewsItem = ({ id = "", title = "", content = " " }) => {
           })
         }
       </div>
-      <a href={`/anunturi/${id}`} className="read-more">Citeste mai mult</a>
+      <a href={`/anunturi/${id}`} className="read-more">Deschide</a>
       {isAdmin &&
         <div className="card-toolbar">
           <div className='tool delete' onClick={() => handleDelete(id)}>
