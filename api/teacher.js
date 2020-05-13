@@ -16,7 +16,6 @@ class Teacher {
     this.#phone = data.Phone;
     this.#fax = data.Fax;
     this.#email = data.Email;
-    this.#avatar = `/images/profile/${data.Avatar}` || '/images/profile/undefined.png'
   }
 
   getFullName() {
@@ -64,8 +63,47 @@ class Teacher {
     }
   }
 
+  setFullName(name) {
+    this.#fullName = name;
+  }
+
+  setGrade(_grade) {
+    this.#grade = _grade;
+  }
+
+  setTitle(_title) {
+    this.#title = _title;
+  }
+
+  setWebPage(_webpage) {
+    this.#webPage = _webpage;
+  }
+
+  setPhone(_phone) {
+    this.#phone = _phone;
+  }
+
+  setFax(_fax) {
+    this.#fax = _fax;
+  }
+
   setAvatar(_avatar) {
     this.#avatar = `/images/profile/${_avatar}`;
+  }
+
+  capitalize(word) {
+    const lowerCased = word.toLowerCase();
+    const capitalized = lowerCased.replace(lowerCased.charAt(0), lowerCased.charAt(0).toUpperCase());
+
+    return capitalized;
+  }
+
+  capitalizeProperties() {
+    let names = this.#fullName.split(" ");
+    names = names.map(name => this.capitalize(name));
+    this.#fullName = names.join(" ");
+    this.#title = this.capitalize(this.#title);
+    this.#grade = this.capitalize(this.#grade);
   }
 }
 

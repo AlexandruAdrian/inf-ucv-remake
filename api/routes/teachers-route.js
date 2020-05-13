@@ -35,7 +35,15 @@ function teachersRoute() {
     router.post('/teachers', isAuthorized, upload.single('Avatar'), async (req, res) => {
         try {
             const teacher = new Teacher(req.body);
-            teacher.setAvatar(req.file.originalname);
+            teacher.capitalizeProperties();
+            if (!req.file) {
+                teacher.setAvatar('undefined.png');
+            } else {
+                teacher.setAvatar(req.file.originalname);
+            }
+            if (teacher.getFax().length === 0) teacher.setFax('-');
+            if (teacher.getPhone().length === 0) teacher.setPhone('-');
+
             const request = new mssql.Request();
             let query = `INSERT INTO Teachers VALUES (
                 '${teacher.getFullName()}',
