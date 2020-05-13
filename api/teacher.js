@@ -1,4 +1,5 @@
 class Teacher {
+  #id
   #fullName;
   #grade;
   #title;
@@ -6,9 +7,9 @@ class Teacher {
   #phone;
   #fax;
   #email;
-  #pathToPicture;
   #avatar;
   constructor(data) {
+    this.#id = data.Id;
     this.#fullName = data.FullName;
     this.#grade = data.Grade;
     this.#title = data.Title;
@@ -16,6 +17,11 @@ class Teacher {
     this.#phone = data.Phone;
     this.#fax = data.Fax;
     this.#email = data.Email;
+    this.#avatar = data.Avatar;
+  }
+
+  getId() {
+    return this.#id;
   }
 
   getFullName() {

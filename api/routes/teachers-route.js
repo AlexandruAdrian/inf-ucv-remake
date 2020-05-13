@@ -90,8 +90,9 @@ function teachersRoute() {
             if (req.file) {
                 teacher.setAvatar(req.file.originalname);
             }
+
             const request = new mssql.Request();
-            const query = `
+            let query = `
                 UPDATE Teachers
                 SET 
                     FullName = '${teacher.getFullName()}',
@@ -101,13 +102,15 @@ function teachersRoute() {
                     Phone = '${teacher.getPhone()}',
                     Fax = '${teacher.getFax()}',
                     Email = '${teacher.getEmail()}',
-                    PathToPicture = '${teacher.getAvatar()}'
+                    Avatar = '${teacher.getAvatar()}'
                 WHERE Id = ${req.params.id}
             `
             await request.query(query);
-
+            query = `SELECT * FROM Teachers WHERE Id = ${teacher.getId()}`;
+            const result = await request.query(query);
             res.type('application/json').status(200).json({
-                message: 'Actualizarea a fost efectuata cu succes'
+                message: 'Actualizarea a fost efectuata cu succes',
+                teacher: result.recordset[0]
             })
         } catch (err) {
             console.log(`Failed to update teacher record - ${err}`);
