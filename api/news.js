@@ -4,21 +4,16 @@ class News {
   #content;
   #categories;
   #tags;
-  #links;
+
   constructor(data) {
     this.#title = data.Title || data.title || "";
     this.#content = data.Content || data.content || "";
     this.#categories = data.Categories || data.categories || [];
-    this.#tags = data.Tags || [];
-    this.#links = data.Links || [];
+    this.#tags = data.Tags || data.tags || [];
   }
 
   addTag(tag) {
     this.#tags.push(tag);
-  }
-
-  addLink(link) {
-    this.#links.push(link);
   }
 
   setId(_id) {
@@ -33,9 +28,6 @@ class News {
     return this.#tags;
   }
 
-  getLinks() {
-    return this.#links;
-  }
 
   getCategories() {
     return this.#categories;

@@ -64,24 +64,23 @@ function newsRoute() {
       const data = news.getIdTitleContent();
       const categories = news.getCategories();
       const tags = news.getTags();
-      const links = news.getLinks();
       const request = new mssql.Request();
 
       if (categories.length === 0) {
         return res.type('application/json').status(400).json({
-          message: 'Campul categorii nu poate fi gol'
+          message: 'Articolul trebuie sa faca parte din cel putin o categorie.'
         })
       }
 
       if (data.title.trim().length === 0) {
         return res.type('application/json').status(400).json({
-          message: 'Campul titlu nu poate fi gol'
+          message: 'Articolul trebuie sa contina un titlu.'
         })
       }
 
       if (data.content.trim().length === 0) {
         return res.type('application/json').status(400).json({
-          message: 'Campul continut nu poate fi gol'
+          message: 'Articolul trebuie sa aiba continut.'
         })
       }
       // Insert id, title and the content into the News table
@@ -90,17 +89,21 @@ function newsRoute() {
       // Insert tags, tags and links should have the same length since every link coresponds to a tag
       if (tags.length > 0) {
         for (let i = 0; i < tags.length; i++) {
-          query = `INSERT INTO Tags VALUES ('${news.getId()}', '${tags[i]}', '${links[i]}');`
+          query = `INSERT INTO Tags VALUES ('${news.getId()}', '${tags[i].tag}', '${tags[i].link}');`
           await request.query(query);
         }
       }
       // Add categories into the categories table
       for (const category of categories) {
-        query = `INSERT INTO Categories VALUES ('${news.getId()}', '${category}')`
+        query = `INSERT INTO Categories VALUES ('${news.getId()}', '${category}');`
         await request.query(query);
       }
+
+      query = `SELECT * FROM News WHERE Id LIKE '${news.getId()}';`;
+      const result = await request.query(query);
       res.type('application/json').status(200).json({
         message: 'Anuntul a fost adaugat cu succes',
+        article: result.recordset
       });
     } catch (err) {
       console.log(`Failed to create news - ${err}`);
