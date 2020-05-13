@@ -27,6 +27,5 @@ export const newsReducer = (news, action) => {
 
     default:
       return;
-
   }
 }

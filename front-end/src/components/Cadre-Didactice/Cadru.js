@@ -2,7 +2,7 @@ import React from 'react';
 import "../../styles/cadre-didactice/Cadru.css"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const Cadru = ({ id, profile, name, grade, title, webPage, phone, fax, email, isAdmin, handleDelete }) => {
+const Cadru = ({ id, profile, name, grade, title, webPage, phone, fax, email, isAdmin, handleDelete, toggleEdit }) => {
   return (
     <section className="teacher-card">
       <div className="teacher">
@@ -22,7 +22,7 @@ const Cadru = ({ id, profile, name, grade, title, webPage, phone, fax, email, is
       </div>
       {isAdmin &&
         <div className="card-toolbar">
-          <div className='tool edit'>
+          <div className='tool edit' onClick={toggleEdit}>
             <FontAwesomeIcon icon='pen' size="sm" />
             <p>Editeaza</p>
           </div>

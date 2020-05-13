@@ -16,6 +16,7 @@ import Admin from "./components/Admin";
 /* Contexts*/
 import { AdminContextProvider } from "./context/admin-context";
 import { NewsContextProvider } from "./context/news-context";
+import { TeachersContextProvider } from "./context/teachers-context";
 
 function App() {
   axios.defaults.baseURL = "http://localhost:8000";
@@ -30,7 +31,9 @@ function App() {
         <Route path="/contact" component={Contact} />
         <AdminContextProvider>
           <Route path="/user/login" component={Admin} />
-          <Route path="/cadre-didactice" component={Teachers} />
+          <TeachersContextProvider>
+            <Route path="/cadre-didactice" component={Teachers} />
+          </TeachersContextProvider>
           <NewsContextProvider>
             <Route path="/anunturi" exact component={News} />
             <Route path="/anunturi/:newsId" component={ExtendedArticle} />

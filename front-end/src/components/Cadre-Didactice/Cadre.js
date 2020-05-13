@@ -3,21 +3,27 @@ import axios from 'axios';
 /* Components */
 import Cadru from "./Cadru";
 import Tool from "../Admin/Tool";
+import TeacherEditForm from "../Admin/TeacherEditForm";
+import TeacherAddForm from "../Admin/TeacherAddForm";
 /* Context */
 import { AdminContext } from "../../context/admin-context";
+import { TeachersStateContext, TeachersDispatchContext } from "../../context/teachers-context";
 
 const Cadre = () => {
-  const [teachers, setTeachers] = useState([]);
   const isAdmin = useContext(AdminContext);
-  const fetchTeachers = async () => {
-    try {
-      const response = await axios.get("/teachers");
-      setTeachers(teachers => [...response.data.teachers, ...teachers]);
+  const teachers = useContext(TeachersStateContext);
+  const dispatch = useContext(TeachersDispatchContext);
 
-    } catch (err) {
-      console.log(err);
-    }
-  };
+  const [showEdit, setShowEdit] = useState(false);
+  const [showAdd, setShowAdd] = useState(true);
+
+  const toggleEdit = () => {
+    setShowEdit(showEdit => !showEdit);
+  }
+
+  const toggleAdd = () => {
+    setShowAdd(showAdd => !showAdd);
+  }
 
   const handleDelete = async (id, e) => {
     try {
@@ -28,8 +34,8 @@ const Cadre = () => {
           Authorization: `Bearer ${token}`
         }
       });
+      dispatch({ type: 'DELETE_TEACHER', payload: id });
 
-      setTeachers(teachers => teachers.filter((t) => t.Id !== id))
 
     } catch (err) {
       console.log(`Failed to delete teacher record - ${err.response.data.message}`);
@@ -37,14 +43,24 @@ const Cadre = () => {
   }
 
   useEffect(() => {
-    fetchTeachers();
-  }, []);
+    (async () => {
+      try {
+        const response = await axios.get("/teachers");
+        dispatch({ type: 'FETCH_TEACHERS', payload: response.data.teachers });
+
+      } catch (err) {
+        console.log(err);
+      }
+    })();
+  }, [dispatch]);
 
   return (
     <section className="container dark-bg-container">
       {isAdmin &&
         <div className="toolbar">
-          <Tool icon='plus' text='Adauga profesor' />
+          <div onClick={toggleAdd}>
+            <Tool icon='plus' text='Adauga profesor' />
+          </div>
         </div>
       }
       <div className="secondary-container">
@@ -63,10 +79,13 @@ const Cadre = () => {
               email={cadru.Email}
               isAdmin={isAdmin}
               handleDelete={handleDelete}
+              toggleEdit={toggleEdit}
             />
           )
         })}
       </div>
+      {showEdit && <TeacherEditForm toggleEdit={toggleEdit} />}
+      {showAdd && <TeacherAddForm toggleAdd={toggleAdd} />}
     </section>
   )
 }
