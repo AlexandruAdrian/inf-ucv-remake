@@ -1,14 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import "../styles/Nav.css";
 /* Custom Hooks */
 import useScrollTracker from "../hooks/useScrollTracker";
+/* Context */
+import { AdminContext } from "../context/admin-context";
 
-const Nav = ({ headerHeight }) => {
+const Nav = ({ headerHeight, history }) => {
     const [whiteBG, setWhiteBG] = useState(false);
     const { visible, prevScrollPos } = useScrollTracker();
     let style = "hide-nav";
     let dropdownStyle = ""
-    // Fix initially hidden nav if refreshed
+
+    const { isAdmin, setIsAdmin } = useContext(AdminContext);
+
     useEffect(() => {
         const isWhite = prevScrollPos > (headerHeight / 2) - 100;
         setWhiteBG(isWhite);
@@ -27,6 +31,11 @@ const Nav = ({ headerHeight }) => {
         dropdownStyle = "hide-dropdown";
     }
 
+    const handleLogOut = () => {
+        localStorage.removeItem("Token");
+        setIsAdmin(false);
+    }
+
     return (
         <nav className={`desktop-nav ${style}`}>
             <ul>
@@ -42,6 +51,7 @@ const Nav = ({ headerHeight }) => {
                 <li><a href="/programe-studiu">Programe de Studii</a></li>
                 <li><a href="/anunturi">Anunturi</a></li>
                 <li><a href="/contact">Contact</a></li>
+                {isAdmin && <li className='log-out-btn' onClick={handleLogOut}>Log Out</li>}
             </ul>
         </nav>
     );

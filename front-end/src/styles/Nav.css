@@ -34,6 +34,16 @@ nav > ul > li > a {
     text-decoration: none;
 }
 
+.log-out-btn {
+    background: rgb(255,0,0);
+    font-weight: bold;
+    color: #fff;
+}
+
+.log-out-btn:hover {
+    background: rgba(255, 0, 0, .4);
+}
+
 .hide-nav {
     top: -50px;
 }
@@ -65,6 +75,10 @@ nav > ul > li > a {
 
 .white-nav > ul > li:hover::after {
     width: 100%;
+}
+
+.white-nav > ul > .log-out-btn:hover::after {
+    width: 0%;
 }
 
 .white-nav > ul > li > a {

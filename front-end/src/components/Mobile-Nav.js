@@ -1,13 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import "../styles/mobile-nav.css";
 /* Components */
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+/* Context */
+import { AdminContext } from "../context/admin-context";
 
 const MobileNav = () => {
   const [visible, setVisible] = useState(false);
 
+  const { isAdmin, setIsAdmin } = useContext(AdminContext);
+
   const handleMenu = () => {
     setVisible(visible => !visible);
+  }
+
+  const handleLogOut = () => {
+    localStorage.removeItem("Token");
+    setIsAdmin(false);
   }
 
   return (
@@ -32,6 +41,7 @@ const MobileNav = () => {
             <li><a href="/programe-studiu">Programe de Studii</a></li>
             <li><a href="/anunturi">Anunturi</a></li>
             <li><a href="/contact">Contact</a></li>
+            {isAdmin && <li onClick={handleLogOut} className="log-out-btn">Log Out</li>}
           </ul>
         ) : (
             <ul className='menu hide-mobile-menu'>
@@ -48,11 +58,12 @@ const MobileNav = () => {
               <li><a href="/programe-studiu">Programe de Studii</a></li>
               <li><a href="/anunturi">Anunturi</a></li>
               <li><a href="/contact">Contact</a></li>
+              {isAdmin && <li onClick={handleLogOut} className="log-out-btn">Log Out</li>}
             </ul>
           )
       }
 
-    </nav>
+    </nav >
   )
 }
 

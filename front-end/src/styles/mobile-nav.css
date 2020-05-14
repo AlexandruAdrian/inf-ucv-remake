@@ -61,6 +61,16 @@
   width: 100%;
   text-align: center;
   padding: 10px 0px;
+  border-radius: 5px;
+}
+
+.menu li.log-out-btn {
+  color: rgb(255, 0, 0);
+  background: #fff;
+  align-self: center;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
 }
 .menu li > p {
   z-index: 3;

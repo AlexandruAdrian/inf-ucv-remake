@@ -24,13 +24,13 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route path="/" exact component={Home} />
-        <Route path="/(admitere|admitere/licenta)" exact component={AdmittanceLicense} />
-        <Route path="/admitere/master" component={AdmittanceMaster} />
-        <Route path="/programe-studiu" component={StudyPrograms} />
-        <Route path="/contact" component={Contact} />
         <AdminContextProvider>
-          <Route path="/user/login" component={Admin} />
+          <Route path="/" exact component={Home} />
+          <Route path="/(admitere|admitere/licenta)" exact component={AdmittanceLicense} />
+          <Route path="/admitere/master" component={AdmittanceMaster} />
+          <Route path="/programe-studiu" component={StudyPrograms} />
+          <Route path="/contact" component={Contact} />
+          <Route path="/user/login" exact component={Admin} />
           <TeachersContextProvider>
             <Route path="/cadre-didactice" component={Teachers} />
           </TeachersContextProvider>

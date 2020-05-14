@@ -1,12 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import "../styles/admin.css";
 import axios from 'axios';
+/* Components */
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+/* Context */
+import { AdminContext } from "../context/admin-context";
 
 const Admin = ({ history }) => {
   const [values, setValues] = useState({ Username: '', Password: '' });
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+
+  const { setIsAdmin } = useContext(AdminContext);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -23,6 +28,7 @@ const Admin = ({ history }) => {
         });
         const token = response.data.accessToken;
         localStorage.setItem(`Token`, token);
+        setIsAdmin(true);
         setIsLoading(false);
         history.push("/");
       } catch (err) {

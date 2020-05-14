@@ -52,6 +52,10 @@ body {
     width: 150px;
 }
 
+.tool:hover {
+    text-decoration: underline;
+}
+
 .card-toolbar {
     display: flex;
     justify-content: space-around;

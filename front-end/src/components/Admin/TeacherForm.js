@@ -66,12 +66,24 @@ const TeacherForm = ({ toggler, fetch, values, setValues, selectedFile, setSelec
       return false;
     }
 
+    /** 
+     * Phone validation will pass if one of the phone 
+     * or fax input will pass while the other one is empty
+     * Otherwise if inputs break the validation the form
+     * will not pass.
+     */
     if (!validatePhone(values.Phone)) {
+      if (validatePhone(values.Fax) && values.Phone.length === 0) {
+        return true;
+      }
       alert("Numarul de telefon este invalid.");
       return false;
     }
 
     if (!validatePhone(values.Fax)) {
+      if (validatePhone(values.Phone) && values.Fax.length === 0) {
+        return true;
+      }
       alert("Numarul de fax este invalid.");
       return false;
     }
@@ -93,7 +105,7 @@ const TeacherForm = ({ toggler, fetch, values, setValues, selectedFile, setSelec
   }
 
   const validatePhone = (phone) => {
-    const expression = /^[0-9 -]+$/;
+    const expression = /^[0-9 +]+$/;
 
     return expression.test(phone);
   }

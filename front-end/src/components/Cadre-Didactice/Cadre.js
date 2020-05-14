@@ -10,7 +10,7 @@ import { AdminContext } from "../../context/admin-context";
 import { TeachersStateContext, TeachersDispatchContext } from "../../context/teachers-context";
 
 const Cadre = () => {
-  const isAdmin = useContext(AdminContext);
+  const { isAdmin } = useContext(AdminContext);
   const teachers = useContext(TeachersStateContext);
   const dispatch = useContext(TeachersDispatchContext);
 

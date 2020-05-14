@@ -14,7 +14,7 @@ import { NewsStateContext, NewsDispatchContext } from "../context/news-context";
 const News = () => {
   const [showForm, setShowForm] = useState(false);
 
-  const isAdmin = useContext(AdminContext);
+  const { isAdmin } = useContext(AdminContext);
   const news = useContext(NewsStateContext);
   const dispatch = useContext(NewsDispatchContext);
 

@@ -24,6 +24,8 @@
   height: auto;
 }
 
+
+
 .add-article button:hover {
   cursor: pointer;
 }
@@ -49,10 +51,19 @@
   width: 90%;
   padding: 3px 5px;
   font-family: 'Lato', 'sans-serif';
+  border-radius: 5px;
+  border: 0;
+  border: 1px solid #222831;
+}
+
+.add-article form input {
+  padding: 5px;
+  height: 25px;
 }
 
 .add-article form textarea {
   height: 140px;
+  resize: none;
 }
 
 .add-article > button {
