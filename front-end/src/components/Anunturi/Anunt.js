@@ -10,7 +10,7 @@ import { NewsDispatchContext } from "../../context/news-context";
 
 const NewsItem = ({ id = "", title = "", content = " " }) => {
   const [tags, setTags] = useState([]);
-  const isAdmin = useContext(AdminContext);
+  const { isAdmin } = useContext(AdminContext);
   const dispatch = useContext(NewsDispatchContext);
 
   useEffect(() => {

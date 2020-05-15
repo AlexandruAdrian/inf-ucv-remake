@@ -16,7 +16,7 @@ const ExtendedArticle = ({ match }) => {
   const [categories, setCategories] = useState([]);
   const [tags, setTags] = useState([]);
 
-  const isAdmin = useContext(AdminContext);
+  const { isAdmin } = useContext(AdminContext);
   const article = useContext(NewsStateContext);
   const dispatch = useContext(NewsDispatchContext);
 
@@ -24,10 +24,13 @@ const ExtendedArticle = ({ match }) => {
 
   useEffect(() => {
     // Fetch article
+    const source = axios.CancelToken.source();
     (async () => {
       try {
         setIsLoading(true);
-        const result = await axios.get(`/news/article/${newsId}`);
+        const result = await axios.get(`/news/article/${newsId}`, {
+          cancelToken: source.token
+        });
         dispatch({ type: 'ARTICLE', payload: result.data.news[0] });
         setIsLoading(false);
       } catch (err) {
@@ -36,31 +39,46 @@ const ExtendedArticle = ({ match }) => {
       }
     })();
 
+    return () => source.cancel();
+
   }, [newsId, dispatch]);
 
   useEffect(() => {
     // Fetch categories
+    let source = axios.CancelToken.source();
     (async () => {
       try {
-        const response = await axios.get(`/news/${newsId}/categories/`);
+        const response = await axios.get(`/news/${newsId}/categories/`, {
+          cancelToken: source.token
+        });
         setCategories(cat => [...response.data.categories, ...cat]);
       } catch (err) {
         console.log(err);
       }
     })();
 
+    return () => source.cancel();
+
   }, [newsId]);
 
   useEffect(() => {
     // Fetch tags and links
+    let source = axios.CancelToken.source();
+
     (async () => {
       try {
-        const response = await axios.get(`/news/${newsId}/tags`);
+        const response = await axios.get(`/news/${newsId}/tags`, {
+          cancelToken: source.token
+        });
+
         setTags(tags => [...response.data.tags, ...tags]);
+
       } catch (err) {
         console.log(err);
       }
     })();
+
+    return () => source.cancel();
   }, [newsId]);
 
   const toggleEdit = () => {
@@ -84,9 +102,8 @@ const ExtendedArticle = ({ match }) => {
           </div>
         </div>
       }
-      {!isLoading &&
+      {!isLoading ? (
         <article className={'extended-news-item'}>
-
           <h4>{article[0].Title}</h4>
           <div className={'news-desc'}>
             {
@@ -99,6 +116,7 @@ const ExtendedArticle = ({ match }) => {
             }
           </div>
         </article>
+      ) : (<p>Loading...</p>)
       }
 
       {displayEdit && <EditForm
